@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wokeai</title>
+<meta name="description" content="wokeai (say whoa-keyah): a grassroots, open-source community for people using their own AI against systemic oppression.">
+<link rel="icon" href="marks/a-roots.svg" type="image/svg+xml">
+<style>
+  :root {
+    --bg: #f6f4ef;
+    --fg: #141414;
+    --muted: #5f5c55;
+    --rule: #d9d5cc;
+    --accent: #1f6f4a;
+    --card: #fbfaf7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121212; --fg: #f2efe8; --muted: #a39f96; --rule: #2a2a2a; --accent: #6fcf9a; --card: #1a1a1a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121212; --fg: #f2efe8; --muted: #a39f96; --rule: #2a2a2a; --accent: #6fcf9a; --card: #1a1a1a;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 16px; }
+
+  header { padding: 56px 0 24px; }
+  .lockup { display: flex; align-items: center; gap: 18px; }
+  .lockup svg { width: 72px; height: 72px; flex: none; color: var(--fg); }
+  .name { font-size: 44px; font-weight: 750; letter-spacing: -0.03em; line-height: 1; margin: 0; }
+  .say { margin: 6px 0 0; color: var(--muted); font-size: 16px; }
+  .say em { font-style: normal; color: var(--fg); }
+
+  section { padding: 28px 0; border-top: 1px solid var(--rule); }
+  h2 { font-size: 13px; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+  p { margin: 0 0 14px; }
+  .lede { font-size: 21px; line-height: 1.4; }
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+  @media (max-width: 520px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 14px; }
+  .pillar b { display: block; margin-bottom: 4px; }
+  .pillar span { color: var(--muted); font-size: 15px; }
+
+  ul.tools { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  ul.tools li { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; }
+  ul.tools li a { font-weight: 600; }
+  ul.tools li span { display: block; color: var(--muted); font-size: 15px; margin-top: 2px; }
+  .note { color: var(--muted); font-size: 15px; }
+
+  footer { padding: 28px 0 56px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; }
+  footer p { margin: 0 0 8px; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- wokeai mark: grass above a ground line, roots as a git graph (main, one merged lane, two open branches). Source: marks/a-roots.svg -->
+    <symbol id="mark" viewBox="0 0 512 512">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M96 222 H416" stroke-width="24"/>
+        <g stroke-width="24">
+          <path d="M200 222 C196 196 184 180 170 168"/><path d="M236 222 C236 194 232 176 228 156"/>
+          <path d="M276 222 C276 194 280 176 284 156"/><path d="M312 222 C316 196 328 180 342 168"/>
+        </g>
+        <path d="M256 222 V404" stroke-width="24"/>
+        <path d="M256 258 C216 258 196 276 196 290 C196 304 216 322 256 322" stroke-width="22"/>
+        <path d="M256 258 C296 258 330 290 336 344" stroke-width="22"/>
+        <path d="M256 322 C226 322 186 350 180 396" stroke-width="22"/>
+      </g>
+      <g fill="currentColor">
+        <circle cx="256" cy="258" r="22"/><circle cx="256" cy="322" r="22"/><circle cx="256" cy="404" r="20"/>
+        <circle cx="196" cy="290" r="18"/><circle cx="336" cy="346" r="20"/><circle cx="180" cy="396" r="20"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header>
+    <div class="lockup">
+      <svg role="img" aria-label="wokeai mark"><use href="#mark"/></svg>
+      <div>
+        <h1 class="name">wokeai</h1>
+        <p class="say">One word. Say it <em>whoa‑keyah</em>.</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="mission">
+    <h2>What this is</h2>
+    <p class="lede">A grassroots community for people using their own AI to push back against systemic oppression, and building the tools to do it in the open.</p>
+    <p>Students, independent researchers, organizers, and builders. People who were told that paying attention is an insult, and who kept paying attention anyway. The name reads one way on the page and sounds like something else out loud. That gap is the point: it rewards a closer look, and it takes back a word that was turned into a slur.</p>
+    <p>We are starting with what we have: a place to gather, a list of tools that already exist, and the people who want to build the next ones. The work is underneath, and it is shared.</p>
+    <div class="pillars">
+      <div class="pillar"><b>Open source</b><span>Tools held in common, with the code where everyone can read it.</span></div>
+      <div class="pillar"><b>Liberation</b><span>Starting from the people with the least power, not the most.</span></div>
+      <div class="pillar"><b>Community</b><span>Nobody does this alone. The roots are the point.</span></div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <h2>Open tools you can use today</h2>
+    <p class="note">A starter list of existing open-source projects for running and studying AI on your own terms. We don't make these; we point to them. More to come as the community adds what it uses.</p>
+    <ul class="tools">
+      <li><a href="https://ollama.com" rel="noopener">Ollama</a><span>Run open language models on your own computer.</span></li>
+      <li><a href="https://github.com/ggml-org/llama.cpp" rel="noopener">llama.cpp</a><span>The engine many local-model tools are built on. Runs on modest hardware.</span></li>
+      <li><a href="https://github.com/open-webui/open-webui" rel="noopener">Open WebUI</a><span>A self-hosted chat interface for local models.</span></li>
+      <li><a href="https://huggingface.co" rel="noopener">Hugging Face</a><span>Where open models and datasets are published and shared.</span></li>
+      <li><a href="https://jupyter.org" rel="noopener">Jupyter</a><span>Notebooks for research you can show your work in.</span></li>
+    </ul>
+  </section>
+
+  <section id="join">
+    <h2>Join</h2>
+    <p>Social profiles and a gathering space are coming. For now, the community is the people reading this and the people they tell.</p>
+    <p class="note">Contact and links will go here.</p>
+  </section>
+
+  <footer>
+    <p>wokeai is in its first days. This page will change.</p>
+    <p>The mark: grass roots above the line, a shared network below.</p>
+  </footer>
+</div>
+
+</body>
+</html>
