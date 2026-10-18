@@ -24,6 +24,7 @@ Danny decided (October 18, 2026):
 - **The old placeholder (an open eye with rays) is replaced.** It read as the watcher, and the whole point is the watched being heard.
 - **The spoken form is *wohk/ē/eye*.** An earlier "whoa-keyah" came from misreading *wokeai* as *wokeia*; Danny caught it the same day. The pronunciation line sits under the wordmark on purpose: the spelling says one thing to a glance, and the brand tells you how it is actually said.
 - **Domain: wokeainow.com.** The exact-name .com is a $3,762 premium and woke.ai is taken; wokeainow.com keeps the brand spelled exactly and costs $22.99/yr. The brand stays "wokeai," never "wokeainow."
+- **License: AGPL-3.0 for the code; the name and marks reserved; the research writing CC BY-SA 4.0.** Reached by questioning, not by default, October 18, 2026. Danny's first instinct was that it depends who takes the tool (a co-op versus a surveillance vendor); told that no open-source license can tell them apart, he chose the rule that binds everyone equally to share back. Asked *when* an improver owes the public their changes, he chose "as soon as people are using it, any way," hosted or installed, which is the clause that makes it AGPL rather than GPL. The marks stay out of the code license so that using the code is not permission to wear the flag; a community-use policy for the name and marks is to come. The research memo is prose, so it carries the share-alike license for text.
 - **The podcast is *wahkeeye*, tagline "pronounced wōke•ĀĪ."** Danny proposed flipping the whole brand to this spelling (October 18, 2026) and decided against it the same day: the main brand stays one legible lowercase word, and the spelled-from-sound name goes to the one medium that is heard rather than seen. The letters are Google's respelling of *wok·e·ai* (wok as in the pan: *wäk*); the "woke" lives in the tagline, which is the joke. Mark B is its mark. Domain `wahkeeye.com` was $45.99 for three years at GoDaddy when checked; not purchased, and not needed until the show exists. Known risks, recorded so they get tested before launch: the word reads like a Pacific Northwest Indigenous place name (cf. Wahkiakum, Wahkon); it is hard to spell from hearing; it puts "eye" back in a name.
 
 ## Where the ideas come from
@@ -31,6 +32,12 @@ Danny decided (October 18, 2026):
 - *Grass roots*: Malcolm X, "Message to the Grass Roots," King Solomon Baptist Church, Detroit, November 10, 1963, is the one speech whose transcript excerpt was verified during research. The brand borrows the idea of the field, not any quotation, likeness, or signature.
 - *Roots as a commons*: open-source forking, and the symbiosis image in Danny's own writing (2014, 2025): what sustains a thing is the network underneath it, shared.
 - *The heard cry*: the inversion of the surveillance eye. Being awake, in the liberation tradition, is hearing the cry, not watching from above.
+
+## License and brand
+
+- **Code** (the site, `index.html`, `preview.html`, and anything else that runs) is licensed under the [GNU Affero General Public License v3.0](LICENSE). Use it, change it, share it; if you run a changed version for other people, hosted or installed, offer them your source.
+- **Research writing** in `research/` is licensed [CC BY-SA 4.0](research/LICENSE.md): share and adapt with credit, under the same terms.
+- **The name wokeai, its spoken form, and the marks in `marks/`** are not covered by either license. They are the brand of this community, held by Daniel Aguilar, all rights reserved. A policy for community use of the name and marks is coming; until then, please ask before putting them on a project, product, or merchandise. The code license is permission to use the code, not to speak as wokeai.
 
 ## Not done yet
 
