@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /preview.html
+Disallow: /design/
+Disallow: /research/
+
+Sitemap: https://wokeainow.com/sitemap.xml
