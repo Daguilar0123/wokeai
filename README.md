@@ -11,7 +11,7 @@ Not an AI product yet. As of October 2026 there is no budget, so this starts as 
 ## What is here
 
 - `marks/a-roots.svg` — **the wokeai mark.** Grass above a ground line; below it the roots are drawn as a git graph: a main branch, one branch merged back (the lane on the left), two open branches. One color (`currentColor`), safe inside a circle crop, built to sit beside the lowercase wordmark.
-- `marks/b-heard.svg` — **reserved for a future wokeai podcast.** Three arcs of sound arriving at a listening point. Deliberately not the Wi‑Fi construction: nothing is emitted, something is heard.
+- `marks/b-heard.svg` — **reserved for the podcast, working name *wahkeeye*.** Three arcs of sound arriving at a listening point. Deliberately not the Wi‑Fi construction: nothing is emitted, something is heard.
 - `preview.html` — both marks at 512 / 64 / 32 / 16 px, light and dark, in the circle crop, beside the wordmark, with lookalike glyphs (a plain git graph, the Wi‑Fi glyph) for the risk check. Open it in a browser.
 
 ## Decisions, dated
@@ -24,6 +24,7 @@ Danny decided (October 18, 2026):
 - **The old placeholder (an open eye with rays) is replaced.** It read as the watcher, and the whole point is the watched being heard.
 - **The spoken form is *wohk/ē/eye*.** An earlier "whoa-keyah" came from misreading *wokeai* as *wokeia*; Danny caught it the same day. The pronunciation line sits under the wordmark on purpose: the spelling says one thing to a glance, and the brand tells you how it is actually said.
 - **Domain: wokeainow.com.** The exact-name .com is a $3,762 premium and woke.ai is taken; wokeainow.com keeps the brand spelled exactly and costs $22.99/yr. The brand stays "wokeai," never "wokeainow."
+- **The podcast is *wahkeeye*, tagline "pronounced wōke•ĀĪ."** Danny proposed flipping the whole brand to this spelling (October 18, 2026) and decided against it the same day: the main brand stays one legible lowercase word, and the spelled-from-sound name goes to the one medium that is heard rather than seen. The letters are Google's respelling of *wok·e·ai* (wok as in the pan: *wäk*); the "woke" lives in the tagline, which is the joke. Mark B is its mark. Domain `wahkeeye.com` was $45.99 for three years at GoDaddy when checked; not purchased, and not needed until the show exists. Known risks, recorded so they get tested before launch: the word reads like a Pacific Northwest Indigenous place name (cf. Wahkiakum, Wahkon); it is hard to spell from hearing; it puts "eye" back in a name.
 
 ## Where the ideas come from
 
