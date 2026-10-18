@@ -47,6 +47,10 @@ Design system **version 2**, October 18, 2026 (supersedes version 1 of the same 
 - *Roots as a commons*: open-source forking, and the symbiosis image in Danny's own writing (2014, 2025): what sustains a thing is the network underneath it, shared.
 - *The heard cry*: the inversion of the surveillance eye. Being awake, in the liberation tradition, is hearing the cry, not watching from above.
 
+## Support
+
+There is no budget. If you want to put a few dollars toward hosting the next pieces, the founder's Buy Me a Coffee is [buymeacoffee.com/danny.thetatteredrose](https://buymeacoffee.com/danny.thetatteredrose); the repo's Sponsor button goes to the same place (`.github/FUNDING.yml`). The site links to it with a plain link, not their widget, so nothing third-party loads on the page.
+
 ## License and brand
 
 - **Code** (the site, `index.html`, `preview.html`, and anything else that runs) is licensed under the [GNU Affero General Public License v3.0](LICENSE). Use it, change it, share it; if you run a changed version for other people, hosted or installed, offer them your source.

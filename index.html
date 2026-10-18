@@ -66,6 +66,8 @@
   .lockup img { width: 72px; height: 72px; flex: none; display: block; }
   .btn { display: inline-block; font-weight: 600; padding: 12px 20px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
   .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .btn.quiet { background: var(--card); color: var(--fg); border: 1px solid var(--rule); }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
   .name { font-size: 44px; font-weight: 750; letter-spacing: -0.03em; line-height: 1; margin: 0; }
   .say { margin: 6px 0 0; color: var(--muted); font-size: 16px; }
   .say em { font-style: normal; color: var(--fg); }
@@ -147,7 +149,8 @@
   <section id="join">
     <h2>Join</h2>
     <p>We’re in our first days and there’s no budget, so we start with what we have. Read the tool list, bring the ones you use, and tell someone.</p>
-    <p><a class="btn" href="https://github.com/Daguilar0123/wokeai/issues" rel="noopener">Join on GitHub</a></p>
+    <p class="actions"><a class="btn" href="https://github.com/Daguilar0123/wokeai/issues" rel="noopener">Join on GitHub</a> <a class="btn quiet" href="https://buymeacoffee.com/danny.thetatteredrose" rel="noopener">Buy me a coffee</a></p>
+    <p class="note">The coffee link goes to Buy Me a Coffee; nothing from them loads on this page.</p>
   </section>
 
   <footer>
