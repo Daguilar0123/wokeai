@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wokeai marks</title>
+<style>
+  :root { --bg:#f6f4ef; --fg:#141414; --muted:#6b6b6b; --rule:#d9d5cc; }
+  .dark { --bg:#121212; --fg:#f2efe8; --muted:#9a9a9a; --rule:#2a2a2a; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.45 system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif; background:#e9e6df; color:#141414; }
+  header { padding:24px 16px 8px; max-width:1100px; margin:0 auto; }
+  h1 { font-size:20px; margin:0 0 4px; }
+  header p { margin:0; color:#555; font-size:14px; }
+  .panel { background:var(--bg); color:var(--fg); padding:28px 16px; border-top:1px solid var(--rule); }
+  .wrap { max-width:1100px; margin:0 auto; }
+  h2 { font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:0 0 18px; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+  @media (max-width:760px){ .row { grid-template-columns:1fr; } }
+  .mark { display:flex; flex-direction:column; gap:18px; }
+  .mark h3 { margin:0; font-size:15px; font-weight:600; }
+  .sizes { display:flex; align-items:flex-end; gap:20px; flex-wrap:wrap; }
+  .sz { display:flex; flex-direction:column; align-items:center; gap:6px; font-size:11px; color:var(--muted); }
+  svg.m { display:block; color:var(--fg); }
+  .crop { border-radius:50%; overflow:hidden; background:var(--fg); color:var(--bg); }
+  .crop svg.m { color:var(--bg); }
+  .lockup { display:flex; align-items:center; gap:12px; margin-top:4px; }
+  .word { font-size:30px; font-weight:700; letter-spacing:-.02em; }
+  .word small { display:block; font-size:12px; font-weight:400; color:var(--muted); letter-spacing:0; }
+  .compare { display:flex; gap:28px; align-items:center; padding-top:14px; border-top:1px dashed var(--rule); }
+  .compare .sz { font-size:11px; }
+  .note { font-size:13px; color:var(--muted); max-width:46ch; margin:0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>wokeai — candidate marks A and B</h1>
+  <p>One color, circle‑crop safe, sized 512 / 64 / 32 / 16. Light and dark. Lookalike glyphs for the risk check sit under each mark.</p>
+</header>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Mark A: roots that are also a network -->
+    <symbol id="markA" viewBox="0 0 512 512">
+      <g fill="none" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M96 222 H416"/>
+        <path d="M200 222 C196 196 184 180 170 168"/><path d="M236 222 C236 194 232 176 228 156"/>
+        <path d="M276 222 C276 194 280 176 284 156"/><path d="M312 222 C316 196 328 180 342 168"/>
+        <path d="M256 222 V404"/>
+        <path d="M256 258 C216 258 196 276 196 290 C196 304 216 322 256 322" stroke-width="22"/>
+        <path d="M256 258 C296 258 330 290 336 344" stroke-width="22"/>
+        <path d="M256 322 C226 322 186 350 180 396" stroke-width="22"/>
+      </g>
+      <g fill="currentColor">
+        <circle cx="256" cy="258" r="22"/><circle cx="256" cy="322" r="22"/><circle cx="256" cy="404" r="20"/>
+        <circle cx="196" cy="290" r="18"/>
+        <circle cx="336" cy="346" r="20"/><circle cx="180" cy="396" r="20"/>
+      </g>
+    </symbol>
+    <!-- Mark B: the heard cry -->
+    <symbol id="markB" viewBox="0 0 512 512">
+      <g transform="translate(10 0) rotate(-8 256 256)">
+        <g fill="none" stroke="currentColor" stroke-linecap="round">
+          <path d="M167.8 183.3 A130 130 0 0 1 167.8 328.7" stroke-width="22"/>
+          <path d="M213.4 152.5 A185 185 0 0 1 213.4 359.5" stroke-width="26"/>
+          <path d="M259 121.8 A240 240 0 0 1 259 390.2" stroke-width="30"/>
+        </g>
+        <circle cx="346" cy="256" r="30" fill="currentColor"/>
+      </g>
+    </symbol>
+    <!-- Lookalikes -->
+    <symbol id="wifi" viewBox="0 0 512 512">
+      <g fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round">
+        <path d="M96 216 A226 226 0 0 1 416 216"/>
+        <path d="M150 272 A150 150 0 0 1 362 272"/>
+        <path d="M204 326 A74 74 0 0 1 308 326"/>
+      </g>
+      <circle cx="256" cy="392" r="26" fill="currentColor"/>
+    </symbol>
+    <symbol id="gitgraph" viewBox="0 0 512 512">
+      <g fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round">
+        <path d="M176 120 V392"/>
+        <path d="M176 200 C176 280 336 240 336 320"/>
+      </g>
+      <g fill="currentColor">
+        <circle cx="176" cy="120" r="30"/><circle cx="176" cy="392" r="30"/><circle cx="336" cy="320" r="30"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<template id="panelTpl"></template>
+
+<section class="panel" id="light"></section>
+<section class="panel dark" id="dark"></section>
+
+<script>
+  const marks = [
+    { id:'markA', name:'A — grass roots as a git graph (chosen, 2026‑10‑18)', compare:'gitgraph', compareLabel:'plain git graph',
+      note:'Main branch down the middle; the lane on the left is a branch merged back; upper‑right and lower‑left are two open branches. What is underneath is shared.' },
+    { id:'markB', name:'B — the heard cry (reserved for the wokeai podcast)', compare:'wifi', compareLabel:'Wi‑Fi glyph (lookalike)',
+      note:'Arcs are wavefronts from a source outside the circle, bulging toward the listener. Wi‑Fi centers its arcs on the dot; this does not.' },
+  ];
+  const sizes = [512, 64, 32, 16];
+  const svg = (id, px, extra='') => `<svg class="m ${extra}" width="${px}" height="${px}"><use href="#${id}"/></svg>`;
+  function panel(el, title){
+    let html = `<div class="wrap"><h2>${title}</h2><div class="row">`;
+    for (const m of marks){
+      html += `<div class="mark"><h3>${m.name}</h3><div class="sizes">`;
+      for (const s of sizes) html += `<div class="sz">${svg(m.id, s)}<span>${s}px</span></div>`;
+      html += `<div class="sz"><div class="crop">${svg(m.id, 64)}</div><span>circle crop</span></div>`;
+      html += `</div>
+        <div class="lockup">${svg(m.id, 44)}<div class="word">wokeai<small>say “whoa‑keyah”</small></div></div>
+        <div class="compare"><div class="sz">${svg(m.id, 48)}<span>ours</span></div><div class="sz">${svg(m.compare, 48)}<span>${m.compareLabel}</span></div><p class="note">${m.note}</p></div>
+      </div>`;
+    }
+    el.innerHTML = html + `</div></div>`;
+  }
+  panel(document.getElementById('light'), 'Light');
+  panel(document.getElementById('dark'), 'Dark');
+</script>
+</body>
+</html>

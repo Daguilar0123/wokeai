@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="wokeai mark: grass above a ground line; below it the roots form a git graph with a main branch, two open branches, and one merged branch">
+  <!--
+    wokeai mark A — grass roots as a git graph (v3, 2026-10-18).
+    One color (currentColor). Safe area r=200 from (256,256).
+    Danny chose A on 2026-10-18 and asked for the roots to read as a git graph:
+    main branch (vertical), one merged branch (the bulge on the right that
+    rejoins main), two open branches (left from the first node, right from the
+    merge node), each ending in a commit node that has not been merged yet.
+    Grass roots (Malcolm X, "Message to the Grass Roots", Detroit, 10 Nov 1963) /
+    symbiosis (Aguilar 2014, 2025) / open-source forking as the commons.
+  -->
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- ground line -->
+    <path d="M96 222 H416" stroke-width="24"/>
+    <!-- grass: four blades fanning outward -->
+    <g stroke-width="24">
+      <path d="M200 222 C196 196 184 180 170 168"/>
+      <path d="M236 222 C236 194 232 176 228 156"/>
+      <path d="M276 222 C276 194 280 176 284 156"/>
+      <path d="M312 222 C316 196 328 180 342 168"/>
+    </g>
+    <!-- main branch -->
+    <path d="M256 222 V404" stroke-width="24"/>
+    <!-- merged branch: leaves N1 to the LEFT, rejoins main at N2.
+         (v3.2: a bowl on the same side as a lower branch read as a letter R;
+         the lane now sits left and the open branches are staggered.) -->
+    <path d="M256 258 C216 258 196 276 196 290 C196 304 216 322 256 322" stroke-width="22"/>
+    <!-- open branch, upper right, from N1 -->
+    <path d="M256 258 C296 258 330 290 336 344" stroke-width="22"/>
+    <!-- open branch, lower left, from N2 -->
+    <path d="M256 322 C226 322 186 350 180 396" stroke-width="22"/>
+  </g>
+  <g fill="currentColor">
+    <!-- commits on main -->
+    <circle cx="256" cy="258" r="22"/>
+    <circle cx="256" cy="322" r="22"/>
+    <circle cx="256" cy="404" r="20"/>
+    <!-- commit on the merged branch -->
+    <circle cx="196" cy="290" r="18"/>
+    <!-- tips of the open branches -->
+    <circle cx="336" cy="346" r="20"/>
+    <circle cx="180" cy="396" r="20"/>
+  </g>
+</svg>
