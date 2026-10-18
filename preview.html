@@ -42,19 +42,16 @@
   <defs>
     <!-- Mark A: roots that are also a network -->
     <symbol id="markA" viewBox="0 0 512 512">
-      <g fill="none" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M96 222 H416"/>
-        <path d="M200 222 C196 196 184 180 170 168"/><path d="M236 222 C236 194 232 176 228 156"/>
-        <path d="M276 222 C276 194 280 176 284 156"/><path d="M312 222 C316 196 328 180 342 168"/>
-        <path d="M256 222 V404"/>
-        <path d="M256 258 C216 258 196 276 196 290 C196 304 216 322 256 322" stroke-width="22"/>
-        <path d="M256 258 C296 258 330 290 336 344" stroke-width="22"/>
-        <path d="M256 322 C226 322 186 350 180 396" stroke-width="22"/>
+      <g fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M100 172 H412"/>
+        <path d="M226 172 L214 130"/><path d="M256 172 V122"/><path d="M286 172 L298 130"/>
+        <path d="M256 172 V359"/>
+        <path d="M256 208 L335 287"/>
+        <path d="M256 299 L177 378"/>
       </g>
       <g fill="currentColor">
-        <circle cx="256" cy="258" r="22"/><circle cx="256" cy="322" r="22"/><circle cx="256" cy="404" r="20"/>
-        <circle cx="196" cy="290" r="18"/>
-        <circle cx="336" cy="346" r="20"/><circle cx="180" cy="396" r="20"/>
+        <circle cx="256" cy="208" r="26"/><circle cx="335" cy="287" r="26"/>
+        <circle cx="256" cy="359" r="26"/><circle cx="177" cy="378" r="26"/>
       </g>
     </symbol>
     <!-- Mark B: the heard cry -->
@@ -97,7 +94,7 @@
 <script>
   const marks = [
     { id:'markA', name:'A — grass roots as a git graph (chosen, 2026‑10‑18)', compare:'gitgraph', compareLabel:'plain git graph',
-      note:'Main branch down the middle; the lane on the left is a branch merged back; upper‑right and lower‑left are two open branches. What is underneath is shared.' },
+      note:'v4: main branch straight down, 35% longer than the branches; one branch down‑right from the top node, one down‑left from the 60% mark; every branch ends in a node; no merge.' },
     { id:'markB', name:'B — the heard cry (reserved for the wokeai podcast)', compare:'wifi', compareLabel:'Wi‑Fi glyph (lookalike)',
       note:'Arcs are wavefronts from a source outside the circle, bulging toward the listener. Wi‑Fi centers its arcs on the dot; this does not.' },
   ];

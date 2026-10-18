@@ -1,44 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="wokeai mark: grass above a ground line; below it the roots form a git graph with a main branch, two open branches, and one merged branch">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="wokeai mark: grass above a ground line; below it, a main root runs straight down with two clean branches, each ending in a node">
   <!--
-    wokeai mark A — grass roots as a git graph (v3, 2026-10-18).
+    wokeai mark A — grass roots as a clean git graph (v4, 2026-10-18).
     One color (currentColor). Safe area r=200 from (256,256).
-    Danny chose A on 2026-10-18 and asked for the roots to read as a git graph:
-    main branch (vertical), one merged branch (the bulge on the right that
-    rejoins main), two open branches (left from the first node, right from the
-    merge node), each ending in a commit node that has not been merged yet.
+
+    Danny on v3: "very jumbled." Spec for v4, in his words: branches like the
+    Git logo; the main branch runs straight down (bearing 180) and is about
+    35% longer than the first branch; the first branch leaves the top node
+    down-right like the Git logo; a second branch leaves the 60% mark of the
+    main branch toward bearing 210–240 (here 225), same length as the first;
+    every branch ends in a node; no merge — too much for a small mark.
+
+    Geometry: L = 112 (branch length). Top node N0 at (256,208).
+    Main: N0 → (256,359), length 151 = 1.35 L.
+    Branch 1: N0 → (335,287), bearing 135, length L.
+    Branch 2: from (256,299) (60% of main) → (177,378), bearing 225, length L.
+
     Grass roots (Malcolm X, "Message to the Grass Roots", Detroit, 10 Nov 1963) /
     symbiosis (Aguilar 2014, 2025) / open-source forking as the commons.
   -->
-  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="26">
     <!-- ground line -->
-    <path d="M96 222 H416" stroke-width="24"/>
-    <!-- grass: four blades fanning outward -->
-    <g stroke-width="24">
-      <path d="M200 222 C196 196 184 180 170 168"/>
-      <path d="M236 222 C236 194 232 176 228 156"/>
-      <path d="M276 222 C276 194 280 176 284 156"/>
-      <path d="M312 222 C316 196 328 180 342 168"/>
-    </g>
-    <!-- main branch -->
-    <path d="M256 222 V404" stroke-width="24"/>
-    <!-- merged branch: leaves N1 to the LEFT, rejoins main at N2.
-         (v3.2: a bowl on the same side as a lower branch read as a letter R;
-         the lane now sits left and the open branches are staggered.) -->
-    <path d="M256 258 C216 258 196 276 196 290 C196 304 216 322 256 322" stroke-width="22"/>
-    <!-- open branch, upper right, from N1 -->
-    <path d="M256 258 C296 258 330 290 336 344" stroke-width="22"/>
-    <!-- open branch, lower left, from N2 -->
-    <path d="M256 322 C226 322 186 350 180 396" stroke-width="22"/>
+    <path d="M100 172 H412"/>
+    <!-- grass: three blades -->
+    <path d="M226 172 L214 130"/>
+    <path d="M256 172 V122"/>
+    <path d="M286 172 L298 130"/>
+    <!-- main branch, from the surface straight down -->
+    <path d="M256 172 V359"/>
+    <!-- branch 1, down-right from the top node -->
+    <path d="M256 208 L335 287"/>
+    <!-- branch 2, down-left from the 60% mark -->
+    <path d="M256 299 L177 378"/>
   </g>
   <g fill="currentColor">
-    <!-- commits on main -->
-    <circle cx="256" cy="258" r="22"/>
-    <circle cx="256" cy="322" r="22"/>
-    <circle cx="256" cy="404" r="20"/>
-    <!-- commit on the merged branch -->
-    <circle cx="196" cy="290" r="18"/>
-    <!-- tips of the open branches -->
-    <circle cx="336" cy="346" r="20"/>
-    <circle cx="180" cy="396" r="20"/>
+    <circle cx="256" cy="208" r="26"/>
+    <circle cx="335" cy="287" r="26"/>
+    <circle cx="256" cy="359" r="26"/>
+    <circle cx="177" cy="378" r="26"/>
   </g>
 </svg>
