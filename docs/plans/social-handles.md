@@ -35,6 +35,46 @@ Do the first tier in one sitting; the rest as Danny has energy. For each: check 
 12. **Substack / newsletter** — only if Danny wants one; otherwise skip.
 13. **Podcast directories** (Apple, Spotify) — skip until the show exists; the name there is `wahkeeye`.
 
+## Availability check (October 18, 2026, logged-out, by the handles session)
+
+| Platform | `wokeai` | `wokeainow` | Notes |
+|---|---|---|---|
+| X | taken: a personal account ("WANG HAINA") | free (404) | |
+| Bluesky | taken: `wokeai.bsky.social`, created November 2024 | free | the custom handle `wokeainow.com` replaces the bsky.social one anyway |
+| Mastodon | free on mastodon.social | free | instance still to choose |
+| Instagram | taken: 7 followers, 85 following | free | |
+| Threads | taken (follows the Instagram account) | free | |
+| TikTok | taken: account from January 2021 | free | |
+| YouTube | taken: a channel from 2007, no description | free | |
+| Reddit | not checked: Reddit blocks automated checks | not checked | check live at reddit.com/user/wokeainow |
+| GitHub | the login `wokeai` is someone else's | n/a | the repo stays `Daguilar0123/wokeai` |
+
+**Recommendation (handles session, October 18, 2026):** claim **`wokeainow` on every platform**, matching the domain, with the display name `wokeai` everywhere. The fallback order above already allows it; one handle everywhere beats `wokeai` on one platform and `wokeainow` on the rest. Danny to confirm before the first account is created.
+
+**Danny's earlier X attempt (checked October 18, 2026):** no mail in danny@grownfromconcrete.org mentions wokeai; the only X welcome mails there are for other accounts. If the attempt used the SiteGround address, the verification mail was never delivered, so X almost certainly never held a name for it. Create fresh; if X reports the email as already in use, recover it by password reset once the brand address receives mail.
+
+**Email (October 18, 2026):** the main session is moving the brand address from a grownfromconcrete.org alias to a forward-only address on wokeainow.com; `docs/plans/email-forwarding.md` will be rewritten to match. No account is created until that address receives mail.
+
+## Paste sheet (prepared October 18, 2026)
+
+Same values on every platform. Files are in `marks/png/`, exported from `marks/roots-official-light.svg` and `marks/og.png` with Quick Look and Pillow, never redrawn, flattened onto `surface` `#f6f4ef` so circle crops never show black.
+
+- **Handle:** `wokeainow` (pending Danny's confirmation)
+- **Display name:** `wokeai`
+- **Bio, 144 characters:** `pronounced wohk/ē/eye. A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
+- **Bio with the name, 153 characters, for platforms that do not show the display name next to the bio:** `wokeai (pronounced wohk/ē/eye). A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
+- **Short bio, 121 characters, where 144 does not fit (TikTok allows 80: use `pronounced wohk/ē/eye. Open tools against systemic oppression. wokeainow.com`):** `A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
+- **Link:** `https://wokeainow.com`
+- **Avatar:** `marks/png/wokeai-avatar-400.png`; `wokeai-avatar-800.png` for Instagram, TikTok and YouTube, which upscale small files badly
+- **Header 1500×500 (X, Bluesky, Mastodon):** `marks/png/wokeai-header-1500x500.png` (the intro card centered on surface, no crop)
+- **YouTube banner 2048×1152:** `marks/png/wokeai-youtube-banner-2048x1152.png` (the intro card scaled to the 1546×423 safe area, so no device crops the text)
+- **Facebook cover and LinkedIn cover:** export when those pages are made; they want other ratios
+- **About (Facebook, LinkedIn, YouTube description):** the About text in `design/social-copy.md`
+
+**Bluesky custom handle, after the account exists:** Settings → Account → Handle → "I have my own domain" → enter `wokeainow.com` → Bluesky shows a TXT record. At GoDaddy, DNS for wokeainow.com, add: type TXT, name `_atproto`, value `did=did:plc:…` exactly as shown, default TTL. The site's A and CNAME records for GitHub Pages are untouched by this. Back in Bluesky, "Verify DNS record". The profile URL becomes `bsky.app/profile/wokeainow.com`.
+
+**Mastodon verification, after the account exists:** add to the footer of `index.html` a link with `rel="me"` to the profile, for example `<a rel="me" href="https://INSTANCE/@wokeainow">Mastodon</a>`, push, then in Mastodon put `https://wokeainow.com` in a profile metadata field; Mastodon fetches the page and marks the link verified.
+
 ## Record (fill in as you go)
 
 | Platform | Handle claimed | Public URL | Email used | 2FA method | Status / notes |
