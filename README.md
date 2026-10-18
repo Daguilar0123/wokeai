@@ -43,4 +43,6 @@ Danny decided (October 18, 2026):
 
 - No trademark or availability search has been run on "wokeai" or on either mark.
 - The 16 px favicon needs its own simplified cut of mark A.
-- No site shell, no license file, no public repo. Open source is a pillar, so the license choice comes before anything is published.
+- The site is not hosted anywhere yet and wokeainow.com is not purchased. The code is public at https://github.com/Daguilar0123/wokeai (since October 18, 2026, licensed as above).
+- `CODE_OF_CONDUCT.md` still has the stock `[INSERT CONTACT METHOD]` placeholder; Danny needs to choose where reports go.
+- No written policy yet for community use of the name and marks (see "License and brand").
