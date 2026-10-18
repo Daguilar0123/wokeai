@@ -1,35 +1,45 @@
-# Plan: a wokeai email address that lands in Danny's inbox
+# Plan: forward-only brand addresses on wokeainow.com
 
-Written October 18, 2026, revised the same day after checking DNS.
+Written October 18, 2026; this version supersedes two earlier drafts the same day (a grownfromconcrete.org alias, and before that a mailbox). Danny's decision: *whichever address we create is the one every social account uses.*
 
 ## What is true (checked October 18, 2026)
 
-- `grownfromconcrete.org` delivers mail to **Microsoft 365**: its MX record is `grownfromconcrete-org.mail.protection.outlook.com`, and `danny@grownfromconcrete.org` is a live M365 mailbox (the connected Outlook account reports userPrincipalName danny@grownfromconcrete.org).
-- That M365 service is **sold through GoDaddy** (the domain's SPF is `include:secureserver.net`, GoDaddy's mail signature), billed on the GoDaddy account, managed at GoDaddy's Email & Office dashboard, not at admin.microsoft.com. Danny never saw a Microsoft bill, which is why it never looked like a Microsoft subscription.
-- The `wokeai@grownfromconcrete.org` mailbox Danny created in **SiteGround** can never receive mail: the domain's MX doesn't point at SiteGround. It was used once and "didn't work" for exactly that reason. **Delete it** (SiteGround → Site Tools → Email → Accounts). Nothing depends on it.
-- `wokeainow.com` has no MX record and no mail service yet.
-- Already done from the main session: an Outlook **category** `wokeai` (green) exists in danny@'s mailbox.
+- `grownfromconcrete.org` delivers mail to Microsoft 365 sold through GoDaddy (MX `grownfromconcrete-org.mail.protection.outlook.com`; SPF `include:secureserver.net`). `danny@grownfromconcrete.org` is that mailbox.
+- The `wokeai@grownfromconcrete.org` mailbox Danny created in SiteGround can never receive mail (the domain's MX doesn't point at SiteGround). **Delete it**: SiteGround → Site Tools → Email → Accounts.
+- `wokeainow.com` has no MX record and no mail service. Good: nothing to migrate.
+- Already in place: an Outlook category `wokeai` (green) on danny@'s mailbox.
 
 ## The decision
 
-Make the brand address an **alias on danny@'s existing mailbox**: free, no new license, no forwarding to break, and Danny can send as it. Two candidate addresses:
+Forward-only addresses on **wokeainow.com**, run by **Forward Email** (forwardemail.net): free for forwarding, the whole service is open source, and it is configured with DNS records alone, so the domain's nameservers stay at GoDaddy and the GitHub Pages records are untouched.
 
-1. **`wokeai@grownfromconcrete.org`** (recommended now): zero setup beyond adding the alias in GoDaddy's dashboard. Fine for platform sign-ups, which nobody else sees.
-2. **`wokeai@wokeainow.com`** (on-brand, for later): needs `wokeainow.com` added as a second domain on the GoDaddy M365 account, which GoDaddy may or may not allow on the current plan. Not needed for sign-ups; revisit when the site has a public contact address.
+- `wokeai@wokeainow.com` → `danny@grownfromconcrete.org` — the address for **every** social sign-up.
+- `hello@wokeainow.com` → `danny@grownfromconcrete.org` — the public contact address for the site and bios.
 
-## Steps (15 minutes, Danny's hands on the keyboard)
+No mailbox exists anywhere; replies arrive in Danny's inbox. Sending *as* these addresses needs Forward Email's paid plan (outbound SMTP); not needed to claim accounts.
 
-1. **SiteGround:** delete the dead `wokeai@` mailbox. Site Tools → Email → Accounts → the wokeai row → Delete.
-2. **GoDaddy → Email & Office (productivity.godaddy.com)** → the danny@grownfromconcrete.org mailbox → **Aliases** (or "Manage → Email aliases") → add `wokeai`. Save. Aliases are free on GoDaddy's Microsoft 365 plans.
-3. **Test:** send one message from any outside address (Gmail is fine) to `wokeai@grownfromconcrete.org`. It should arrive in danny@'s inbox within a minute.
-4. **Outlook on the web (outlook.office.com), Settings → Mail → Rules:** new rule `wokeai mail`: condition *Sent to* `wokeai@grownfromconcrete.org` → actions *Move to* a new folder `wokeai` (create it from the folder picker) and *Categorize* `wokeai`. Run it on existing mail once. (The connected tools can make categories and sender/subject rules but not folders or sent-to rules, so this part is by hand.)
-5. **Send as the alias:** in Outlook on the web, Settings → Mail → Compose and reply, confirm the alias appears in the From picker. If not, GoDaddy's dashboard has a "send from alias" toggle for the mailbox.
-6. **Record** in this file: which form the address is (alias on danny@), where recovery and 2FA for the mailbox go, and the date.
+## DNS records at GoDaddy for wokeainow.com (from Forward Email's FAQ, read October 18, 2026)
 
-## Fix while you are in there: the SPF record
+| Type | Name | Value | Priority | TTL |
+|---|---|---|---|---|
+| MX | `@` | `mx1.forwardemail.net` | 0 | 1 Hour |
+| MX | `@` | `mx2.forwardemail.net` | 0 | 1 Hour |
+| TXT | `@` | `forward-email=wokeai:danny@grownfromconcrete.org,hello:danny@grownfromconcrete.org` | | 1 Hour |
+| TXT | `@` | `v=spf1 a include:spf.forwardemail.net -all` | | 1 Hour |
 
-`grownfromconcrete.org`'s SPF is `v=spf1 include:secureserver.net -all`. Mail sent from the M365 mailbox goes out through Microsoft's servers, which that record does not authorize, so some recipients may spam-folder or reject Danny's outgoing mail. GoDaddy's own setup normally writes `v=spf1 include:secureserver.net include:spf.protection.outlook.com -all`. Check in GoDaddy's DNS for grownfromconcrete.org whether a second SPF record exists (there must be exactly one TXT starting with `v=spf1`) and make it include both. This is unrelated to wokeai but it affects every email Danny sends from that address.
+Notes from their docs: both MX records are required and no other MX may exist (there is none); several aliases go in one `forward-email=` record separated by commas, each record under 255 characters; specific aliases beat a catch-all, and there is no catch-all here on purpose (a catch-all invites spam); they recommend `-all` in SPF.
+
+**A privacy trade-off to know:** on the free plan the forwarding rule lives in public DNS, so anyone who looks up the domain's TXT records can see that mail goes to `danny@grownfromconcrete.org`. The paid plan (a few dollars a month) hides destinations and adds outbound SMTP. For now the exposure is one email address that already appears on Danny's public work; revisit when the site needs to send mail.
+
+## Steps
+
+1. **GoDaddy → wokeainow.com → DNS Records:** add the four records above. (Done from the main session with Danny approving the saves; see the commit that records it.)
+2. **Forward Email account:** Danny signs up at forwardemail.net (free), adds `wokeainow.com` under My Account → Domains, and clicks **Verify Records**. The agent never creates accounts.
+3. **Test:** from any outside address, send to `wokeai@wokeainow.com` and to `hello@wokeainow.com`; both should land in danny@'s inbox within a minute or two. DNS can take up to an hour to propagate.
+4. **Outlook on the web → Settings → Mail → Rules:** rule `wokeai mail`: condition *Sent to* contains `wokeainow.com` → actions *Move to* a new folder `wokeai` and *Categorize* `wokeai`. (The connected tools can't make folders or sent-to rules, so this is by hand.)
+5. **SiteGround:** delete the dead `wokeai@grownfromconcrete.org` mailbox.
+6. **Separately, grownfromconcrete.org's SPF** is `v=spf1 include:secureserver.net -all` and omits `include:spf.protection.outlook.com`, which can hurt every email Danny sends from his M365 mailbox. Fix it in that domain's DNS at GoDaddy; there must be exactly one `v=spf1` TXT record.
 
 ## Done looks like
 
-The SiteGround mailbox is gone; `wokeai@grownfromconcrete.org` is an alias on danny@; a test message lands in the `wokeai` folder, tagged; Danny can send as the alias; SPF includes Microsoft; this file records the date and where recovery goes.
+Mail to both addresses arrives in danny@'s `wokeai` folder; the SiteGround mailbox is gone; the handles plan uses `wokeai@wokeainow.com` as the sign-up address; this file records the date, the Forward Email account's recovery details location, and the SPF fix.
