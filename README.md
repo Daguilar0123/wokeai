@@ -2,7 +2,7 @@
 
 One lowercase word. Pronounced *wohk/ē/eye*.
 
-Brand: **wokeai**. Website: **wokeainow.com** (Danny's choice, October 18, 2026; $45.99 for three years at GoDaddy, then $22.99/yr; not yet purchased as of this commit).
+Brand: **wokeai**. Domains: **wokeainow.com** and **wokeainow.app**, both registered at GoDaddy on October 18, 2026 (Danny's purchase; the .com was $45.99 for three years, then $22.99/yr). The .com is the website; the .app is held for the app that comes later and should redirect to the .com until then.
 
 An aspirational brand and community: a website and social profiles gathering people around grassroots resistance to systemic oppression, from students and independent researchers using their own AI to tools built and shared in the open. Pillars: open source, liberation, community. It answers Executive Order 14319, "Preventing Woke AI in the Federal Government" (July 23, 2025), and is informed by the Black liberation struggle in America.
 
@@ -24,9 +24,9 @@ Danny decided (October 18, 2026):
 - **Theology stays implicit** in the public brand. The images carry it; the site speaks in liberation and open-source language and is interfaith by default. Sources get named on Tattered Rose, not here.
 - **The old placeholder (an open eye with rays) is replaced.** It read as the watcher, and the whole point is the watched being heard.
 - **The spoken form is *wohk/ē/eye*.** An earlier "whoa-keyah" came from misreading *wokeai* as *wokeia*; Danny caught it the same day. The pronunciation line sits under the wordmark on purpose: the spelling says one thing to a glance, and the brand tells you how it is actually said.
-- **Domain: wokeainow.com.** The exact-name .com is a $3,762 premium and woke.ai is taken; wokeainow.com keeps the brand spelled exactly and costs $22.99/yr. The brand stays "wokeai," never "wokeainow."
+- **Domains: wokeainow.com and wokeainow.app.** The exact-name .com is a $3,762 premium and woke.ai is taken; wokeainow keeps the brand spelled exactly and only adds "now." Both bought October 18, 2026. The brand stays "wokeai," never "wokeainow." No domain was bought for the podcast name.
 - **License: AGPL-3.0 for the code; the name and marks reserved; the research writing CC BY-SA 4.0.** Reached by questioning, not by default, October 18, 2026. Danny's first instinct was that it depends who takes the tool (a co-op versus a surveillance vendor); told that no open-source license can tell them apart, he chose the rule that binds everyone equally to share back. Asked *when* an improver owes the public their changes, he chose "as soon as people are using it, any way," hosted or installed, which is the clause that makes it AGPL rather than GPL. The marks stay out of the code license so that using the code is not permission to wear the flag; a community-use policy for the name and marks is to come. The research memo is prose, so it carries the share-alike license for text.
-- **The podcast is *wahkeeye*, tagline "pronounced wōke•ĀĪ."** Danny proposed flipping the whole brand to this spelling (October 18, 2026) and decided against it the same day: the main brand stays one legible lowercase word, and the spelled-from-sound name goes to the one medium that is heard rather than seen. The letters are Google's respelling of *wok·e·ai* (wok as in the pan: *wäk*); the "woke" lives in the tagline, which is the joke. Mark B is its mark. Domain `wahkeeye.com` was $45.99 for three years at GoDaddy when checked; not purchased, and not needed until the show exists. Known risks, recorded so they get tested before launch: the word reads like a Pacific Northwest Indigenous place name (cf. Wahkiakum, Wahkon); it is hard to spell from hearing; it puts "eye" back in a name.
+- **The podcast is *wahkeeye*, tagline "pronounced wōke•ĀĪ."** Danny proposed flipping the whole brand to this spelling (October 18, 2026) and decided against it the same day: the main brand stays one legible lowercase word, and the spelled-from-sound name goes to the one medium that is heard rather than seen. The letters are Google's respelling of *wok·e·ai* (wok as in the pan: *wäk*); the "woke" lives in the tagline, which is the joke. Mark B is its mark. No domain was bought for it (Danny, October 18, 2026: the domains are wokeainow.com and wokeainow.app only); the show will live under the main site. Known risks, recorded so they get tested before launch: the word reads like a Pacific Northwest Indigenous place name (cf. Wahkiakum, Wahkon); it is hard to spell from hearing; it puts "eye" back in a name.
 
 ## Where the ideas come from
 
@@ -44,6 +44,6 @@ Danny decided (October 18, 2026):
 
 - No trademark or availability search has been run on "wokeai" or on either mark.
 - The 16 px favicon needs its own simplified cut of mark A.
-- The site is not hosted anywhere yet and wokeainow.com is not purchased. The code is public at https://github.com/Daguilar0123/wokeai (since October 18, 2026, licensed as above).
+- The site is not hosted anywhere yet; wokeainow.com and wokeainow.app are registered and parked at GoDaddy, awaiting DNS. The code is public at https://github.com/Daguilar0123/wokeai (since October 18, 2026, licensed as above).
 - `CODE_OF_CONDUCT.md` still has the stock `[INSERT CONTACT METHOD]` placeholder; Danny needs to choose where reports go.
 - No written policy yet for community use of the name and marks (see "License and brand").
