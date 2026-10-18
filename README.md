@@ -1,6 +1,8 @@
 # wokeai
 
-One lowercase word. Say it *whoa-keyah*.
+One lowercase word. Pronounced *wohk/ē/eye*.
+
+Brand: **wokeai**. Website: **wokeainow.com** (Danny's choice, October 18, 2026; $45.99 for three years at GoDaddy, then $22.99/yr; not yet purchased as of this commit).
 
 An aspirational brand and community: a website and social profiles gathering people around grassroots resistance to systemic oppression, from students and independent researchers using their own AI to tools built and shared in the open. Pillars: open source, liberation, community. It answers Executive Order 14319, "Preventing Woke AI in the Federal Government" (July 23, 2025), and is informed by the Black liberation struggle in America.
 
@@ -20,6 +22,8 @@ Danny decided (October 18, 2026):
 - **Mark B is not scrapped.** It is held for the podcast.
 - **Theology stays implicit** in the public brand. The images carry it; the site speaks in liberation and open-source language and is interfaith by default. Sources get named on Tattered Rose, not here.
 - **The old placeholder (an open eye with rays) is replaced.** It read as the watcher, and the whole point is the watched being heard.
+- **The spoken form is *wohk/ē/eye*.** An earlier "whoa-keyah" came from misreading *wokeai* as *wokeia*; Danny caught it the same day. The pronunciation line sits under the wordmark on purpose: the spelling says one thing to a glance, and the brand tells you how it is actually said.
+- **Domain: wokeainow.com.** The exact-name .com is a $3,762 premium and woke.ai is taken; wokeainow.com keeps the brand spelled exactly and costs $22.99/yr. The brand stays "wokeai," never "wokeainow."
 
 ## Where the ideas come from
 
