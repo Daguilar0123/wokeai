@@ -49,7 +49,7 @@ Do the first tier in one sitting; the rest as Danny has energy. For each: check 
 | Reddit | not checked: Reddit blocks automated checks | not checked | check live at reddit.com/user/wokeainow |
 | GitHub | the login `wokeai` is someone else's | n/a | the repo stays `Daguilar0123/wokeai` |
 
-**Recommendation (handles session, October 18, 2026):** claim **`wokeainow` on every platform**, matching the domain, with the display name `wokeai` everywhere. The fallback order above already allows it; one handle everywhere beats `wokeai` on one platform and `wokeainow` on the rest. Danny to confirm before the first account is created.
+**Decision (Danny, October 18, 2026):** use **`wokeai` wherever it is free** (Mastodon, and Reddit if the live check allows) and **`wokeainow` elsewhere** (X, Bluesky, Instagram, Threads, TikTok, YouTube). Display name `wokeai` everywhere. The session had recommended `wokeainow` on every platform for uniformity; Danny chose to hold the exact name where he can, per the plan's original priority order. No account is created until the brand email address receives mail.
 
 **Danny's earlier X attempt (checked October 18, 2026):** no mail in danny@grownfromconcrete.org mentions wokeai; the only X welcome mails there are for other accounts. If the attempt used the SiteGround address, the verification mail was never delivered, so X almost certainly never held a name for it. Create fresh; if X reports the email as already in use, recover it by password reset once the brand address receives mail.
 
@@ -59,7 +59,7 @@ Do the first tier in one sitting; the rest as Danny has energy. For each: check 
 
 Same values on every platform. Files are in `marks/png/`, exported from `marks/roots-official-light.svg` and `marks/og.png` with Quick Look and Pillow, never redrawn, flattened onto `surface` `#f6f4ef` so circle crops never show black.
 
-- **Handle:** `wokeainow` (pending Danny's confirmation)
+- **Handle:** `wokeai` where free (Mastodon, maybe Reddit), otherwise `wokeainow` (Danny's decision, October 18, 2026)
 - **Display name:** `wokeai`
 - **Bio, 144 characters:** `pronounced wohk/ē/eye. A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
 - **Bio with the name, 153 characters, for platforms that do not show the display name next to the bio:** `wokeai (pronounced wohk/ē/eye). A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
