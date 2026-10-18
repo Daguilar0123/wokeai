@@ -1,0 +1,40 @@
+<!-- @dsCard height=300 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;800&display=swap">
+<style>
+  body { margin: 0; background: var(--surface); color: var(--ink); font-family: var(--font-sans, "Archivo", system-ui, sans-serif); }
+  .cover { position: relative; width: 960px; height: 300px; overflow: hidden; }
+  .cover svg { position: absolute; inset: 0; }
+  .accent { fill: var(--accent); }
+  .earth { fill: var(--earth); }
+  .ink { fill: var(--ink); }
+  .card { fill: var(--card); stroke: var(--rule); stroke-width: 1; }
+  .line { stroke: var(--surface); stroke-width: 16; fill: none; stroke-linecap: round; }
+  .node { fill: var(--surface); }
+  .tile { rx: 10px; }
+  .name { position: absolute; left: 32px; bottom: 56px; font-size: 120px; font-weight: 800; letter-spacing: -0.03em; line-height: .92; max-width: 440px; }
+  .tag { position: absolute; left: 32px; bottom: 32px; font-size: 14px; color: var(--muted); max-width: 440px; }
+</style>
+<div class="cover">
+  <!--
+    blocks: accent 288×300 (space-7×~5, radius-md), earth 192×144 (radius-md), card 96×144 and accent 192×144 satellites, surface line cut-outs
+    arrangement: one tall accent slab at the right edge with an earth block and two smaller tiles staggered left of it, bleeding off the top and right
+    pattern: the literal motif, a git-graph root system (a main line, two branches, four nodes) cut from the slab in surface; chosen because the mark IS a git graph and "the roots are the point"
+    scales: sides space-7 multiples (56, 96, 144, 192, 288), corners radius-md 10, line width 16 = stroke-to-size of the mark, nodes r=16
+  -->
+  <svg viewBox="0 0 960 300" width="960" height="300" aria-hidden="true">
+    <rect class="accent tile" x="672" y="-10" width="288" height="320"/>
+    <rect class="earth tile" x="480" y="-10" width="192" height="154"/>
+    <rect class="card tile" x="480" y="156" width="96" height="144"/>
+    <rect class="accent tile" x="588" y="156" width="84" height="144"/>
+    <!-- root graph cut from the slab -->
+    <path class="line" d="M816 56 V216"/>
+    <path class="line" d="M816 96 L888 168"/>
+    <path class="line" d="M816 176 L744 248"/>
+    <circle class="node" cx="816" cy="96" r="16"/>
+    <circle class="node" cx="888" cy="168" r="16"/>
+    <circle class="node" cx="816" cy="216" r="16"/>
+    <circle class="node" cx="744" cy="248" r="16"/>
+  </svg>
+  <div class="name">wokeai</div>
+  <div class="tag">pronounced wohk/ē/eye</div>
+</div>

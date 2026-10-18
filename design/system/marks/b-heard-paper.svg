@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="wokeai mark B: three arcs of sound arriving at a listening point">
+  <!--
+    Mark B — the heard cry (v2, 2026-10-18).
+    One color (#f2efe8). Safe area r=200 from (256,256).
+    v1 was distinct from Wi‑Fi and read well at 64px but too thin at 16px.
+    v2: heavier strokes (22/26/30), bigger listener dot, slightly narrower arcs.
+    Sound ARRIVES: wavefronts from a source outside the circle (center of
+    curvature at x≈60), bulging toward the listener. Wi‑Fi centers its arcs
+    on the dot; this does not. Nothing is emitted; something is heard.
+    (Exodus 3:7; Aguilar, Confessional statement, 2013.)
+  -->
+  <g transform="translate(10 0) rotate(-8 256 256)">
+    <g fill="none" stroke="#f2efe8" stroke-linecap="round">
+      <!-- arcs centered (60,256), half-angle 34° -->
+      <path d="M167.8 183.3 A130 130 0 0 1 167.8 328.7" stroke-width="22"/>
+      <path d="M213.4 152.5 A185 185 0 0 1 213.4 359.5" stroke-width="26"/>
+      <path d="M259 121.8 A240 240 0 0 1 259 390.2" stroke-width="30"/>
+    </g>
+    <circle cx="346" cy="256" r="30" fill="#f2efe8"/>
+  </g>
+</svg>

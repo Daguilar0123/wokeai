@@ -1,0 +1,28 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": { "v": 1, "at": "2026-10-18T21:45:00Z" },
+  "title": "wokeai",
+  "namespace": "wokeai",
+  "libraries": [],
+  "sections": {},
+  "groups": ["Marks"],
+  "assetGroups": {
+    "Marks": {
+      "name": "Marks",
+      "tile": "l",
+      "order": ["a-roots-ink.svg", "a-roots-paper.svg", "b-heard-ink.svg", "b-heard-paper.svg", "a-roots.svg", "b-heard.svg"],
+      "files": {
+        "a-roots-ink.svg": { "name": "a-roots-ink.svg", "blob": "24a742855a5e366aba41d63055a590b3", "size": 865, "type": "image/svg+xml" },
+        "a-roots-paper.svg": { "name": "a-roots-paper.svg", "blob": "fcc5b6201a42cb322c6ab49113ceca6a", "size": 865, "type": "image/svg+xml" },
+        "b-heard-ink.svg": { "name": "b-heard-ink.svg", "blob": "f5db8b80dffb0a9dd1881cff0c347366", "size": 626, "type": "image/svg+xml" },
+        "b-heard-paper.svg": { "name": "b-heard-paper.svg", "blob": "7812ef0f159e423391f74f893226f004", "size": 626, "type": "image/svg+xml" },
+        "a-roots.svg": { "name": "a-roots.svg", "blob": "10f3b55e731bbf04cecdf27cc28f68db", "size": 875, "type": "image/svg+xml" },
+        "b-heard.svg": { "name": "b-heard.svg", "blob": "e1a9e3da3bb42a1e8722565d0ae89d1f", "size": 636, "type": "image/svg+xml" }
+      }
+    }
+  },
+  "blobs": {},
+  "docs": { "readme": "project/README.md", "sections": [] },
+  "lastChange": { "by": "Danny Aguilar", "at": "2026-10-18T21:45:00Z", "via": "Claude Code", "note": "First system, built from the wokeai repo at commit 3a8bb3d." }
+}

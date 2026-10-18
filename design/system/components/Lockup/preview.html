@@ -1,0 +1,36 @@
+<!-- @dsCard group="Brand" height=260 subtitle="Horizontal / stacked / on accent" -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap">
+<style>
+  body { margin: 0; background: var(--surface); color: var(--ink); font-family: var(--font-sans, "Archivo", system-ui, sans-serif); }
+  .row { display: flex; flex-wrap: wrap; gap: 32px; align-items: center; padding: 24px; }
+  .lockup { display: flex; align-items: center; gap: 18px; }
+  .lockup svg { width: 72px; height: 72px; flex: none; }
+  .name { font-size: 44px; font-weight: 750; letter-spacing: -0.03em; line-height: 1; }
+  .say { margin-top: 6px; font-size: 16px; line-height: 1.4; color: var(--muted); }
+  .say em { font-style: normal; color: var(--ink); }
+  .stack { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  .stack svg { width: 64px; height: 64px; }
+  .stack .name { font-size: 28px; }
+  .avatar { width: 96px; height: 96px; border-radius: var(--radius-full); background: var(--accent); color: var(--surface); display: grid; place-items: center; }
+  .avatar svg { width: 64px; height: 64px; }
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="roots" viewBox="0 0 512 512">
+    <g fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M100 172 H412"/><path d="M226 172 L214 130"/><path d="M256 172 V122"/><path d="M286 172 L298 130"/>
+      <path d="M256 172 V359"/><path d="M256 208 L335 287"/><path d="M256 299 L177 378"/>
+    </g>
+    <g fill="currentColor"><circle cx="256" cy="208" r="26"/><circle cx="335" cy="287" r="26"/><circle cx="256" cy="359" r="26"/><circle cx="177" cy="378" r="26"/></g>
+  </symbol>
+</defs></svg>
+<div class="row">
+  <div class="lockup">
+    <svg role="img" aria-label="wokeai mark"><use href="#roots"/></svg>
+    <div><div class="name">wokeai</div><div class="say">pronounced <em>wohk/ē/eye</em></div></div>
+  </div>
+  <div class="stack">
+    <svg role="img" aria-label="wokeai mark"><use href="#roots"/></svg>
+    <div class="name">wokeai</div>
+  </div>
+  <div class="avatar"><svg role="img" aria-label="wokeai mark"><use href="#roots"/></svg></div>
+</div>
