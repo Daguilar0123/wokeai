@@ -18,7 +18,10 @@
 <meta name="twitter:title" content="wokeai (pronounced wohk/ē/eye)">
 <meta name="twitter:description" content="A grassroots, open-source community for people using their own AI to push back against systemic oppression.">
 <meta name="twitter:image" content="https://wokeainow.com/marks/og.png">
-<link rel="icon" href="marks/a-roots.svg" type="image/svg+xml">
+<link rel="icon" href="marks/favicon-32.svg" type="image/svg+xml" sizes="32x32" media="(prefers-color-scheme: light)">
+<link rel="icon" href="marks/favicon-16.svg" type="image/svg+xml" sizes="16x16" media="(prefers-color-scheme: light)">
+<link rel="icon" href="marks/favicon-32-dark.svg" type="image/svg+xml" sizes="32x32" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="marks/favicon-16-dark.svg" type="image/svg+xml" sizes="16x16" media="(prefers-color-scheme: dark)">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"wokeai","url":"https://wokeainow.com/","logo":"https://wokeainow.com/marks/og.png","sameAs":["https://github.com/Daguilar0123/wokeai"],"description":"A grassroots, open-source community for people using their own AI to push back against systemic oppression."}
 </script>
@@ -29,15 +32,23 @@
     --muted: #5f5c55;
     --rule: #d9d5cc;
     --accent: #1f6f4a;
+    --accent-ink: #f6f4ef;
     --card: #fbfaf7;
+    /* mark-only tokens (design system v2): never for text */
+    --earth: #5b4636;
+    --root: #9a7858;
+    --light-halo: #3fbf7a;
+    --light-core: #eafff2;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #121212; --fg: #f2efe8; --muted: #a39f96; --rule: #2a2a2a; --accent: #6fcf9a; --card: #1a1a1a;
+      --bg: #121212; --fg: #f2efe8; --muted: #a39f96; --rule: #2a2a2a; --accent: #6fcf9a; --accent-ink: #121212; --card: #1a1a1a;
+      --earth: #8a6d57; --root: #c2a07c; --light-halo: #6fcf9a; --light-core: #d6ffe6;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #121212; --fg: #f2efe8; --muted: #a39f96; --rule: #2a2a2a; --accent: #6fcf9a; --card: #1a1a1a;
+    --bg: #121212; --fg: #f2efe8; --muted: #a39f96; --rule: #2a2a2a; --accent: #6fcf9a; --accent-ink: #121212; --card: #1a1a1a;
+    --earth: #8a6d57; --root: #c2a07c; --light-halo: #6fcf9a; --light-core: #d6ffe6;
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -52,7 +63,9 @@
 
   header { padding: 56px 0 24px; }
   .lockup { display: flex; align-items: center; gap: 18px; }
-  .lockup svg { width: 72px; height: 72px; flex: none; color: var(--fg); }
+  .lockup img { width: 72px; height: 72px; flex: none; display: block; }
+  .btn { display: inline-block; font-weight: 600; padding: 12px 20px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .name { font-size: 44px; font-weight: 750; letter-spacing: -0.03em; line-height: 1; margin: 0; }
   .say { margin: 6px 0 0; color: var(--muted); font-size: 16px; }
   .say em { font-style: normal; color: var(--fg); }
@@ -81,29 +94,16 @@
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <!-- wokeai mark: grass above a ground line, roots as a clean git graph (main branch, two branches, nodes, no merge). Source: marks/a-roots.svg -->
-    <symbol id="mark" viewBox="0 0 512 512">
-      <g fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M100 172 H412"/>
-        <path d="M226 172 L214 130"/><path d="M256 172 V122"/><path d="M286 172 L298 130"/>
-        <path d="M256 172 V359"/>
-        <path d="M256 208 L335 287"/>
-        <path d="M256 299 L177 378"/>
-      </g>
-      <g fill="currentColor">
-        <circle cx="256" cy="208" r="26"/><circle cx="335" cy="287" r="26"/>
-        <circle cx="256" cy="359" r="26"/><circle cx="177" cy="378" r="26"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
 <div class="wrap">
   <header>
     <div class="lockup">
-      <svg role="img" aria-label="wokeai mark"><use href="#mark"/></svg>
+      <!-- Official Roots mark (design system v2). Static file by theme; the animated file plays once on hover unless the visitor prefers reduced motion. -->
+      <picture>
+        <source srcset="marks/roots-official-dark.svg" media="(prefers-color-scheme: dark)">
+        <img id="mark" src="marks/roots-official-light.svg" width="72" height="72" alt="wokeai mark: three clumps of grass above a ground line, with roots drawn as a branching network"
+             data-static-light="marks/roots-official-light.svg" data-static-dark="marks/roots-official-dark.svg"
+             data-animated-light="marks/roots-animated-light.svg" data-animated-dark="marks/roots-animated-dark.svg">
+      </picture>
       <div>
         <h1 class="name">wokeai</h1>
         <p class="say">pronounced <em>wohk/ē/eye</em></p>
@@ -114,8 +114,11 @@
   <section id="mission">
     <h2>What this is</h2>
     <p class="lede">A grassroots, open-source community for people using their own AI to push back against systemic oppression. Open tools, shared in common. Starting small.</p>
-    <p>We're a grassroots community for people who use their own AI to push back against systemic oppression: students, independent researchers, organizers, and builders. Not a product. A place to gather, a list of open tools that already exist, and the people who want to build the next ones.</p>
-    <p>Three things hold it up.</p>
+    <p>We’re a grassroots community for people who use their own AI to push back against systemic oppression: students, independent researchers, organizers, and builders. Not a product. A place to gather, a list of open tools that already exist, and the people who want to build the next ones.</p>
+  </section>
+
+  <section id="pillars">
+    <h2>Three things hold it up</h2>
     <div class="pillars">
       <div class="pillar"><b>Open source</b><span>Tools held in common, with the code where everyone can read it.</span></div>
       <div class="pillar"><b>Liberation</b><span>Starting from the people with the least power, not the most.</span></div>
@@ -126,7 +129,7 @@
   <section id="name">
     <h2>The name</h2>
     <p class="lede alt">wōke•ĀĪ</p>
-    <p>wokeai is one word, always lowercase, and it's said <em>wohk/ē/eye</em>. The spelling says one thing to a glance. We'll tell you how it's said.</p>
+    <p>wokeai is one word, always lowercase, and it’s said <em>wohk/ē/eye</em>. The spelling says one thing to a glance. We’ll tell you how it’s said.</p>
   </section>
 
   <section id="tools">
@@ -143,16 +146,41 @@
 
   <section id="join">
     <h2>Join</h2>
-    <p>We're in our first days and there's no budget, so we start with what we have. Read the tool list, bring the ones you use, and tell someone.</p>
-    <p>The code for this site, the marks, and the research behind the name are public: <a href="https://github.com/Daguilar0123/wokeai" rel="noopener">github.com/Daguilar0123/wokeai</a>. Open an issue there to propose a tool or to say you want to build.</p>
-    <p class="note">Social profiles are coming. For now, the community is the people reading this and the people they tell.</p>
+    <p>We’re in our first days and there’s no budget, so we start with what we have. Read the tool list, bring the ones you use, and tell someone.</p>
+    <p><a class="btn" href="https://github.com/Daguilar0123/wokeai/issues" rel="noopener">Join on GitHub</a></p>
   </section>
 
   <footer>
-    <p>wokeai is in its first days. This page will change.</p>
-    <p>The mark: grass roots above the line, a shared network below. Code licensed AGPL-3.0; the name and marks are held by the community's founder.</p>
+    <p><a href="https://wokeainow.com/">wokeainow.com</a> · <a href="https://github.com/Daguilar0123/wokeai" rel="noopener">github.com/Daguilar0123/wokeai</a></p>
+    <p>Code licensed AGPL-3.0; the name and marks are held by the community’s founder.</p>
   </footer>
 </div>
+
+<script>
+  // Play the animated mark once on hover or focus; static otherwise, and always static under prefers-reduced-motion.
+  (function () {
+    var img = document.getElementById('mark');
+    if (!img) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var dark = window.matchMedia('(prefers-color-scheme: dark)');
+    var timer = null;
+    function pick(kind) { return img.getAttribute('data-' + kind + '-' + (dark.matches ? 'dark' : 'light')); }
+    function play() {
+      if (reduce.matches || timer) return;
+      var source = img.parentElement.querySelector('source');
+      if (source) source.removeAttribute('srcset');
+      img.src = pick('animated') + '?t=' + Date.now();
+      timer = setTimeout(function () {
+        img.src = pick('static');
+        if (source) source.setAttribute('srcset', 'marks/roots-official-dark.svg');
+        timer = null;
+      }, 7000);
+    }
+    img.addEventListener('mouseenter', play);
+    img.addEventListener('focus', play);
+    img.tabIndex = 0;
+  })();
+</script>
 
 </body>
 </html>
