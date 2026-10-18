@@ -10,7 +10,8 @@ Not an AI product yet. As of October 2026 there is no budget, so this starts as 
 
 ## What is here
 
-- `marks/a-roots.svg` — **the wokeai mark.** Grass above a ground line; below it the roots are drawn as a git graph: a main branch, one branch merged back (the lane on the left), two open branches. One color (`currentColor`), safe inside a circle crop, built to sit beside the lowercase wordmark.
+- `marks/a-roots.svg` — **the wokeai mark.** Grass above a ground line; below it the roots are drawn as a clean git graph: a main branch straight down, 35% longer than its branches; one branch down-right from the top node; one down-left from the 60% mark; every branch ends in a node; no merge (v4, Danny's spec, October 18, 2026). One color (`currentColor`), safe inside a circle crop, built to sit beside the lowercase wordmark.
+- **Design system** — published as a claude.ai Design System artifact on October 18, 2026: https://claude.ai/artifact/FALr3euRfEpufD7eyDu8dL (private to Danny until shared). Tokens for both themes, Archivo as the one typeface, the Lockup, Wordmark, Card, and Button components, a cover, and the marks in its asset store. Built from this repo at commit 3a8bb3d; `design/claude-design-brief.md` is the brief it answers. Claude Design builds on it; changes go to that artifact, never to a second one.
 - `marks/b-heard.svg` — **reserved for the podcast, working name *wahkeeye*.** Three arcs of sound arriving at a listening point. Deliberately not the Wi‑Fi construction: nothing is emitted, something is heard.
 - `preview.html` — both marks at 512 / 64 / 32 / 16 px, light and dark, in the circle crop, beside the wordmark, with lookalike glyphs (a plain git graph, the Wi‑Fi glyph) for the risk check. Open it in a browser.
 
