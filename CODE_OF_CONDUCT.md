@@ -7,7 +7,7 @@ Our code of conduct lives in **the wokeai covenant**, in the section "How we tre
 
 That section is in force now, even while the rest of the covenant is a working draft. It is adapted from the [Contributor Covenant, version 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) (CC BY 4.0), rewritten in the community's own voice and widened to name power, surveillance, and extraction as conduct problems. It is not the Contributor Covenant; it is ours.
 
-**Reporting.** Report violations to the people responsible for enforcement at **[INSERT CONTACT METHOD]**. (Danny has not yet chosen where reports go. Until he does, open an issue marked *conduct* or use the contact on the site once there is one.)
+**Reporting.** For now, report violations by [opening a GitHub issue marked **conduct**](https://github.com/Daguilar0123/wokeai/issues/new?labels=conduct&title=Conduct%3A+). Issues are public: say only what you are willing to say in public, and if you need to say more, write that you need to be contacted and the people enforcing this will arrange a private way to talk. A private address is coming (Danny, October 18, 2026: "I'll give you a real address later").
 
 ---
 

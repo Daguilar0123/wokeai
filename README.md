@@ -64,6 +64,6 @@ There is no budget. If you want to put a few dollars toward hosting the next pie
 - No trademark or availability search has been run on "wokeai" or on either mark.
 - The 16 px favicon needs its own simplified cut of mark A.
 - The site is not hosted anywhere yet; wokeainow.com and wokeainow.app are registered and parked at GoDaddy, awaiting DNS. The code is public at https://github.com/Daguilar0123/wokeai (since October 18, 2026, licensed as above).
-- The covenant's reporting line (and `CODE_OF_CONDUCT.md`) still has the stock `[INSERT CONTACT METHOD]` placeholder; Danny needs to choose where reports go.
+- Conduct reports go to a GitHub issue labeled `conduct` for now (Danny, October 18, 2026: "I'll give you a real address later"). Issues are public, which the covenant says plainly; a private address is still needed.
 - The covenant is a working draft; Danny intends to revise it in his own hand. The brand book's "Intro" and "Voice" entries in `design/system/README.md` predate the voice decision and should be reconciled with it.
 - The brand policy in `BRAND.md` names hello@wokeainow.com as the contact; that address is still only planned (`docs/plans/email-forwarding.md`) and does not receive mail yet.
