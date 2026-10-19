@@ -43,6 +43,8 @@ Design system **version 2**, October 18, 2026 (supersedes version 1 of the same 
 
 **Podcast.** *wahkeeye*, with the Heard mark. Its tagline is not decided ("spelled wokeai" or "spelled wōke•ĀĪ"); the lockup stays as it was until it is.
 
+- **The home page speaks in Danny's words (October 19, 2026).** The October 18 rewrite's voice wasn't his. He supplied the copy: capitalism, and 21st-century AI-powered late-stage capitalism above all, as the system that cuts across the acute systems of oppression; capitalism as the birth of white supremacy via the wages of whiteness (Du Bois 1935, Roediger 1991); worker cooperatives as Marx's "first sprouts of the new" (Capital III, ch. 27); the app as branches per system of oppression; wokeai as a transitional living worker cooperative with a worker-owner count of one. Decided the same day: the money line is cited to 1 Timothy 6:10; the anti-Zionist comparison stays on the landing page; the full text is on the home page; an under-construction notice sits under the header and in Join.
+
 ## Where the ideas come from
 
 - *Grass roots*: Malcolm X, "Message to the Grass Roots," King Solomon Baptist Church, Detroit, November 10, 1963, is the one speech whose transcript excerpt was verified during research. The brand borrows the idea of the field, not any quotation, likeness, or signature.

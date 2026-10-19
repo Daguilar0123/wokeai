@@ -29,6 +29,9 @@ wokeai (pronounced wohk/ē/eye). A grassroots, open-source community for people 
 
 Voice: plain, direct, warm. Short sentences. No borrowed slogans, no quotation of historical figures, nothing that implies violence or claims anyone's endorsement.
 
+
+> **Superseded on the live site, October 19, 2026.** The home page copy above is the brand book's version 2 text. On October 19, Danny replaced the home page's "What this is" and the former "The way out" section with his own words (capitalism as the system that cuts across the others; worker cooperatives as "the first sprouts of the new"; the app as branches per system of oppression; a transitional living worker cooperative with a worker-owner count of one), and added an under-construction notice. `index.html` in the repo is the canonical copy now; do not restore the text above to the page. The intro, the name rules, and the mark rules here are unchanged.
+
 ## Roots mark
 
 Three clumps of grass above a ground line. Below, each clump has its own roots, drawn as a network:
