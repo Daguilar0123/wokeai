@@ -35,13 +35,13 @@ Notes from their docs: both MX records are required and no other MX may exist (t
 
 ## Steps
 
-1. **GoDaddy → wokeainow.com → DNS Records:** add the four records above. (Done from the main session with Danny approving the saves; see the commit that records it.)
-2. **Forward Email account:** Danny signs up at forwardemail.net (free), adds `wokeainow.com` under My Account → Domains, and clicks **Verify Records**. The agent never creates accounts.
-3. **Test:** from any outside address, send to `wokeai@wokeainow.com` and to `hello@wokeainow.com`; both should land in danny@'s inbox within a minute or two. DNS can take up to an hour to propagate.
+1. **GoDaddy → wokeainow.com → DNS Records:** add the four records above. **Done October 19, 2026:** Danny saved the TXT edit (hello + accounts) and the SPF record; all four records confirmed live on GoDaddy's nameserver and on public DNS with `dig`. GoDaddy shows 10 records per page and the TXT rows sit on page 2, which is why an earlier walkthrough showed nothing to save.
+2. **Forward Email account:** Danny adds `wokeainow.com` under My Account → Domains and clicks **Verify Records**. The agent never creates accounts. **Pending (October 19, 2026):** Danny already has a Forward Email account for another site; whether wokeainow.com joins it or gets its own is his decision. Rule either way: the account's login must be a real mailbox, never an address that the same account forwards. Free forwarding runs from the DNS records, so the test in step 3 does not wait on this step.
+3. **Test:** from any outside address, send to `accounts@wokeainow.com` and to `hello@wokeainow.com`; both should land in danny@'s inbox within a minute or two. DNS can take up to an hour to propagate.
 4. **Outlook on the web → Settings → Mail → Rules:** rule `wokeai mail`: condition *Sent to* contains `wokeainow.com` → actions *Move to* a new folder `wokeai` and *Categorize* `wokeai`. (The connected tools can't make folders or sent-to rules, so this is by hand.)
 5. **SiteGround:** delete the dead `wokeai@grownfromconcrete.org` mailbox.
 6. **Separately, grownfromconcrete.org's SPF** is `v=spf1 include:secureserver.net -all` and omits `include:spf.protection.outlook.com`, which can hurt every email Danny sends from his M365 mailbox. Fix it in that domain's DNS at GoDaddy; there must be exactly one `v=spf1` TXT record.
 
 ## Done looks like
 
-Mail to both addresses arrives in danny@'s `wokeai` folder; the SiteGround mailbox is gone; the handles plan uses `wokeai@wokeainow.com` as the sign-up address; this file records the date, the Forward Email account's recovery details location, and the SPF fix.
+Mail to both addresses arrives in danny@'s `wokeai` folder; the SiteGround mailbox is gone; the handles plan uses `accounts@wokeainow.com` as the sign-up address; this file records the date, the Forward Email account's recovery details location, and the SPF fix.
