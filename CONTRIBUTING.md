@@ -2,7 +2,7 @@
 
 wokeai is in its first days. Right now the project is a one-page site, two marks, and a short list of open tools. Contributions that help most are new tools for the list, corrections, and bug reports on the site.
 
-By taking part you agree to the [Code of Conduct](CODE_OF_CONDUCT.md).
+By taking part you agree to [the wokeai covenant](covenant.html), especially its section "How we treat each other" (also reachable through [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)).
 
 ## Propose a tool for the list
 

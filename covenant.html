@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The wokeai covenant (working draft)</title>
+<meta name="description" content="What wokeai believes and how we treat each other. A working draft, in the founder's own voice: the love of money and the love of power are the root; worker-owned co-ops are the way; here is how we hold the room.">
+<link rel="canonical" href="https://wokeainow.com/covenant.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wokeai">
+<meta property="og:title" content="The wokeai covenant (working draft)">
+<meta property="og:description" content="What we believe and how we treat each other. The love of money and the love of power are the root. Worker-owned co-ops are the way. Nobody is anybody's profit margin here.">
+<meta property="og:url" content="https://wokeainow.com/covenant.html">
+<meta property="og:image" content="https://wokeainow.com/marks/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="marks/favicon-32.svg" type="image/svg+xml" sizes="32x32" media="(prefers-color-scheme: light)">
+<link rel="icon" href="marks/favicon-16.svg" type="image/svg+xml" sizes="16x16" media="(prefers-color-scheme: light)">
+<link rel="icon" href="marks/favicon-32-dark.svg" type="image/svg+xml" sizes="32x32" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="marks/favicon-16-dark.svg" type="image/svg+xml" sizes="16x16" media="(prefers-color-scheme: dark)">
+<style>
+  :root {
+    --bg: #f6f4ef;
+    --fg: #141414;
+    --muted: #5f5c55;
+    --rule: #d9d5cc;
+    --accent: #1f6f4a;
+    --accent-ink: #f6f4ef;
+    --card: #fbfaf7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121212; --fg: #f2efe8; --muted: #a39f96; --rule: #2a2a2a; --accent: #6fcf9a; --accent-ink: #121212; --card: #1a1a1a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121212; --fg: #f2efe8; --muted: #a39f96; --rule: #2a2a2a; --accent: #6fcf9a; --accent-ink: #121212; --card: #1a1a1a;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 16px; }
+
+  header { padding: 56px 0 24px; }
+  .lockup { display: flex; align-items: center; gap: 18px; }
+  .lockup img { width: 56px; height: 56px; flex: none; display: block; }
+  .lockup a { text-decoration: none; color: inherit; }
+  .name { font-size: 32px; font-weight: 750; letter-spacing: -0.03em; line-height: 1; margin: 0; }
+  .say { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+  .say em { font-style: normal; color: var(--fg); }
+  h1 { font-size: 36px; font-weight: 750; letter-spacing: -0.03em; line-height: 1.1; margin: 36px 0 10px; }
+  .status { display: inline-block; background: var(--card); border: 1px solid var(--rule); border-radius: 999px; padding: 3px 12px; color: var(--muted); font-size: 14px; }
+
+  section { padding: 28px 0; border-top: 1px solid var(--rule); }
+  h2 { font-size: 13px; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+  h3 { font-size: 18px; margin: 22px 0 8px; }
+  p { margin: 0 0 14px; }
+  .lede { font-size: 21px; line-height: 1.4; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin: 0 0 8px; }
+  .evidence { list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 10px; }
+  .evidence li { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; }
+  .evidence li a { font-weight: 600; }
+  .evidence li span { display: block; color: var(--muted); font-size: 15px; margin-top: 2px; }
+  .note { color: var(--muted); font-size: 15px; }
+  .ladder { counter-reset: step; list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 10px; }
+  .ladder li { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; }
+  .ladder li b { display: block; margin-bottom: 4px; }
+  .ladder li span { color: var(--muted); font-size: 15px; }
+  strong.caps { letter-spacing: .02em; }
+
+  footer { padding: 28px 0 56px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; }
+  footer p { margin: 0 0 8px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="lockup">
+      <a href="/" aria-label="wokeai home">
+        <picture>
+          <source srcset="marks/roots-official-dark.svg" media="(prefers-color-scheme: dark)">
+          <img src="marks/roots-official-light.svg" width="56" height="56" alt="wokeai mark: three clumps of grass above a ground line, with roots drawn as a branching network">
+        </picture>
+      </a>
+      <div>
+        <p class="name"><a href="/">wokeai</a></p>
+        <p class="say">pronounced <em>wohk/ē/eye</em></p>
+      </div>
+    </div>
+    <h1>The wokeai covenant</h1>
+    <p><span class="status">Working draft · October 2026</span></p>
+    <p class="note">This is the page our code of conduct points to while the real thing gets written in our own words. It says what we believe, why we use the words we use, and how we treat each other. It will change. The parts about how we treat each other are in force now.</p>
+  </header>
+
+  <section id="root">
+    <h2>Where we start</h2>
+    <p class="lede">The love of money and the love of power are the root of all kinds of evil. Everything else on this page follows from that one sentence.</p>
+    <p>We did not make that line up. It comes from the circle that formed around a brown Palestinian Jew named Jesus, two thousand years ago, under an empire that eventually executed him for saying things like it. You do not have to believe anything supernatural to see that it is true. You only have to look.</p>
+    <p>A system that exists to expand capital, to grow profit, to put profit over people, is a system built on that love. It will do what it is built to do. It will round people up when rounding people up pays. It will put a child in front of a judge alone when a lawyer for that child costs money. It will build a camp when a camp is cheaper than a court. None of this is a malfunction. It is the design.</p>
+    <p>So we start from the people with the least power, not the most. In the old language that is the least of these. In plain language it is whoever is being crushed right now, and who nobody with power is listening to. Being awake, for us, is not watching from above. It is hearing the cry.</p>
+  </section>
+
+  <section id="words">
+    <h2>Why we use the words cruel and inhumane</h2>
+    <p>Those are strong words. Strong words have to be earned, or they are just noise. So here is why they apply to the United States in 2026. Not opinion. Reporting you can check.</p>
+    <ul class="evidence">
+      <li><a href="https://abcnews.go.com/US/wireStory/trump-administration-cuts-legal-migrant-children-traveling-120042832" rel="noopener">Children questioned in court with no family and no lawyer.</a><span>In March 2025 the administration cut the federal program that paid for lawyers for migrant children who arrived alone. A court ordered it restored; in summer 2026 the contract was allowed to lapse again. The legal-aid network says a child with no lawyer has under a ten percent chance of staying. These are children, some too young to read, answering a judge by themselves.</span></li>
+      <li><a href="https://www.nbcnews.com/news/us-news/2-year-old-us-citizen-apparently-deported-no-meaningful-process-judge-rcna203124" rel="noopener">Children deported, including U.S. citizens.</a><span>In April 2025 a two-year-old born in Louisiana was put on a flight to Honduras with her mother. The federal judge, a Trump appointee, wrote that it was done with "no meaningful process." The same week, two more citizen children went out the same way, one of them a four-year-old with cancer. The government's answer was that the mothers chose it. The mothers' lawyers say they were never allowed to speak to them.</span></li>
+      <li><a href="https://www.aclu.org/press-releases/report-finds-deaths-neglect-in-fort-bliss-immigration-detention" rel="noopener">The camps.</a><span>Human Rights Watch and the ACLU documented the detention camp on the Fort Bliss army base in El Paso in July 2026: five tents, up to seventy-two people to a pen, beatings, medical neglect, deaths in custody, and removals to countries people had never lived in. Its title is a quote from inside: "You're only getting out deported or dead." That is a camp. We will call it one.</span></li>
+    </ul>
+    <p>Black and Brown people from communities on the margins are being rounded up, en masse, in the cruelest and most inhumane ways this country has used in living memory. There is real, physical, imminent danger for many people in Trump's America. We say his name because he signed the orders. We do not stop there.</p>
+    <p>We used to hold the Democrats to a higher standard. We don't anymore. The deportation machine was built and oiled by both parties over thirty years. The prisons were filled by both. The camps sit on ground both cleared. The difference is in manners, not in outcome. We hold both to the same standard now, which is the only honest thing to do.</p>
+  </section>
+
+  <section id="not-saying">
+    <h2>What we are not saying</h2>
+    <p>Here is what this is not. We are not calling for armed anything. Every leftist movement that ever won took up arms at some point; we are not naive about history and we won't pretend otherwise. But no serious person in the United States should propose armed conflict against the United States. Not because an empire can't fall. They all do. Because there is a better way, and we would rather spend our lives on it.</p>
+    <p>And it is not a so-called third way, the kind that leaves everything where it was and changes the tone. It is a way that goes straight at the thing itself.</p>
+  </section>
+
+  <section id="way">
+    <h2>The way</h2>
+    <p class="lede">Go directly at who owns the means of production. Anything that does that is revolutionary. If you can do it without bloodshed, that is better, and it can be done.</p>
+    <p>We'll say the quiet part first. In an ideal world, the thing Marx described as communism, where the people who do the work own what the work makes and nobody is anybody's property or anybody's profit margin, would be a good world. We are not embarrassed by that. We also live in twenty-first-century America, and we are not interested in utopias that collapsed or in a state that owns everything in the people's name. We are interested in what can be built here, now, by people with nothing, that changes who owns things.</p>
+    <p>That is what we mean by a <strong>transitional living worker co-op</strong>.</p>
+    <h3>Owned by the people who do the work</h3>
+    <p>A transitional living worker co-op is not a business where the workers earn a wage and someone else keeps the rest. The workers own it. The people who create the production own the means of production. That means no one at the top makes three hundred times what the lowest-paid person makes, or even three hundred times the average, which is where American companies sit today. If there is a difference in pay, it is modest. Three to one at the very most. Profits are split close to evenly, because the ownership is. That is the whole point.</p>
+    <h3>Honest about how decisions get made</h3>
+    <p>Decision-making will be hierarchical at first. We are saying that out loud so nobody feels tricked later. Right now one person is building this and has a vision for it, and he wants to see it exist. Ownership and profit are shared from day one. Governance gets shared as the thing gets real and as the people in it are ready to carry it. That is a promise, and this page is where you hold us to it.</p>
+    <h3>Start at the roots</h3>
+    <p>People on the margins come through a program that actually looks at the roots of their trauma, and gives them room to address those roots, not manage the symptoms for a quarter and move on. Alongside that, we help each person find the thing they are passionate about and are skilled at, or willing to get skilled at, because they actually enjoy it and will push through the hard part. Then they do that work, in a place they co-own.</p>
+    <h3>Real equity, not a certificate</h3>
+    <p>When people come through, they leave with ownership. Real equity. That is how you empower a community instead of serving it: you change what it owns. Do that enough times, in enough places, and you have challenged capitalism at the one point where it can actually be challenged, which is the question of who owns the means of production. Without a revolution. Without bloodshed. With a ledger that reads differently than the one down the street.</p>
+  </section>
+
+  <section id="ai">
+    <h2>Where the AI comes in</h2>
+    <p>The same question applies to the machines. Who owns the model? Who owns the data? Who owns the compute, and who gets rounded up with its help? An AI you rent from a company that answers to shareholders is a tool of the owners. An AI you run yourself, on your own hardware, built from code anyone can read, is a tool you own. wokeai exists to point people at the second kind, to gather the people building it, and to build the next pieces in the open where nobody can take them private. The roots of the mark are a git graph for a reason. What sustains a thing is the network underneath it, shared.</p>
+  </section>
+
+  <section id="each-other">
+    <h2>How we treat each other</h2>
+    <p class="note">This part is in force now, draft or not. It is adapted from the <a href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/" rel="noopener">Contributor Covenant, version 2.1</a>, which we have rewritten in our own voice and widened to say the thing it leaves out: that power in the room is the thing to watch.</p>
+    <h3>The pledge</h3>
+    <p>We pledge to make taking part in this community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, class, income, housing, immigration status, criminal record, nationality, personal appearance, race, caste, color, religion or none, or sexual identity and orientation. We pledge to act in ways that make this community open, welcoming, and healthy, and to start from the person in the room with the least power, not the most.</p>
+    <h3>What we expect</h3>
+    <ul>
+      <li>Empathy and kindness toward other people, especially the ones who are new, scared, or broke.</li>
+      <li>Respect for different opinions, viewpoints, and experiences, including the ones that come from a life very different from yours.</li>
+      <li>Giving and gracefully accepting honest feedback.</li>
+      <li>Owning your mistakes, apologizing to the people they landed on, and learning from them.</li>
+      <li>Focusing on what is best for the whole community, not just for you.</li>
+      <li>Remembering that many of us have records, histories, and diagnoses, and that none of those is a reason to be treated as less than a person here.</li>
+    </ul>
+    <h3>What we will not have</h3>
+    <ul>
+      <li>Sexualized language or imagery, and sexual attention or advances of any kind.</li>
+      <li>Trolling, insulting or degrading comments, and attacks on people rather than on arguments. This community is political on purpose; arguing hard about ideas is welcome. Going after a person is not.</li>
+      <li>Public or private harassment.</li>
+      <li>Publishing anyone's private information, such as a physical or email address, immigration status, or criminal history, without their explicit permission. Some people here can be hurt badly by this. Treat it as the serious harm it is.</li>
+      <li>Using this community to recruit, scrape, or gather data for surveillance, policing, immigration enforcement, or any product whose business is watching people. We are judged by what we do here, not by where we work, but what we do here includes who we are working for while we do it.</li>
+      <li>Using this community to extract from the people in it: unpaid labor dressed up as opportunity, or a pitch for a venture where the workers won't own the result.</li>
+      <li>Anything else a reasonable person would call out of line in a room full of people who have each other's backs.</li>
+    </ul>
+    <h3>Where this applies</h3>
+    <p>Everywhere this community is: the repository, issues and pull requests, any chat or forum we run, events we host, and anywhere someone is officially speaking for wokeai, such as an official account or address or representing us at an event.</p>
+    <h3>Reporting</h3>
+    <p>If someone crosses a line, report it to the people responsible for enforcement at <strong>[INSERT CONTACT METHOD]</strong>. Every report will be looked at promptly and fairly. The people enforcing this are obligated to protect the privacy and safety of whoever reports, and they will.</p>
+    <h3>What happens</h3>
+    <p>The people enforcing this decide what a violation is and what it costs, following these steps. They explain their reasoning when they can.</p>
+    <ol class="ladder">
+      <li><b>1. Correction</b><span>For language or behavior that is unwelcome or out of line. A private, written note explaining what crossed the line and why. A public apology may be asked for.</span></li>
+      <li><b>2. Warning</b><span>For a violation, single or repeated. A warning with consequences spelled out. No contact with the people involved, including the people enforcing this, for a set time, in our spaces or outside them. Breaking that leads to a ban.</span></li>
+      <li><b>3. Temporary ban</b><span>For a serious violation or sustained bad behavior. No public or private interaction with the community for a set time. Breaking that leads to a permanent ban.</span></li>
+      <li><b>4. Permanent ban</b><span>For a pattern of violations, harassment of a person, or aggression toward or contempt for whole groups of people. You are out, for good.</span></li>
+    </ol>
+    <p class="note">The structure of this section and much of its wording are adapted from the <a href="https://www.contributor-covenant.org" rel="noopener">Contributor Covenant</a>, version 2.1, used under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>. The enforcement ladder was inspired by <a href="https://github.com/mozilla/diversity" rel="noopener">Mozilla's code of conduct enforcement ladder</a>. We changed the voice, the list of who is protected, the standard of judgment, and added the lines about power, surveillance, and extraction. This is not the Contributor Covenant; it is ours.</p>
+  </section>
+
+  <section id="close">
+    <h2>In closing</h2>
+    <p>We are a few people with no budget and a git repository. That is how every one of these things starts. The roots go down before anything shows above the ground. By the grace of the universe, and by the work of our own hands, we intend to see this through.</p>
+    <p>In power, solidarity, and militant joy.</p>
+  </section>
+
+  <footer>
+    <p>Written by Daniel Aguilar, founder, October 18, 2026. A working draft; the argument is his and will be revised in his own hand.</p>
+    <p><a href="/">wokeainow.com</a> · <a href="https://github.com/Daguilar0123/wokeai" rel="noopener">github.com/Daguilar0123/wokeai</a> · <a href="https://github.com/Daguilar0123/wokeai/issues" rel="noopener">Argue with this page in an issue</a></p>
+    <p>Code licensed AGPL-3.0; this text CC BY-SA 4.0; the name and marks are held by the community's founder.</p>
+  </footer>
+</div>
+
+</body>
+</html>
