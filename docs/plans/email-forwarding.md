@@ -13,8 +13,10 @@ Written October 18, 2026; this version supersedes two earlier drafts the same da
 
 Forward-only addresses on **wokeainow.com**, run by **Forward Email** (forwardemail.net): free for forwarding, the whole service is open source, and it is configured with DNS records alone, so the domain's nameservers stay at GoDaddy and the GitHub Pages records are untouched.
 
-- `wokeai@wokeainow.com` → `danny@grownfromconcrete.org` — the address for **every** social sign-up.
+- `accounts@wokeainow.com` → `danny@grownfromconcrete.org` — the address for **every** social sign-up (unpublished, so verification codes never share a stream with public spam).
 - `hello@wokeainow.com` → `danny@grownfromconcrete.org` — the public contact address for the site and bios.
+
+(Danny, October 19, 2026: `wokeai@wokeainow.com` was redundant; replaced by `accounts@`.)
 
 No mailbox exists anywhere; replies arrive in Danny's inbox. Sending *as* these addresses needs Forward Email's paid plan (outbound SMTP); not needed to claim accounts.
 
@@ -24,7 +26,7 @@ No mailbox exists anywhere; replies arrive in Danny's inbox. Sending *as* these 
 |---|---|---|---|---|
 | MX | `@` | `mx1.forwardemail.net` | 0 | 1 Hour |
 | MX | `@` | `mx2.forwardemail.net` | 0 | 1 Hour |
-| TXT | `@` | `forward-email=wokeai:danny@grownfromconcrete.org,hello:danny@grownfromconcrete.org` | | 1 Hour |
+| TXT | `@` | `forward-email=hello:danny@grownfromconcrete.org,accounts:danny@grownfromconcrete.org` | | 1 Hour |
 | TXT | `@` | `v=spf1 a include:spf.forwardemail.net -all` | | 1 Hour |
 
 Notes from their docs: both MX records are required and no other MX may exist (there is none); several aliases go in one `forward-email=` record separated by commas, each record under 255 characters; specific aliases beat a catch-all, and there is no catch-all here on purpose (a catch-all invites spam); they recommend `-all` in SPF.
