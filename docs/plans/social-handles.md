@@ -81,7 +81,7 @@ Same values on every platform. Files are in `marks/png/`, exported from `marks/r
 
 | Platform | Handle claimed | Public URL | Email used | 2FA method | Status / notes |
 |---|---|---|---|---|---|
-| X | | | | | |
+| X | `wokeainow` | https://x.com/wokeainow | not `accounts@`: this is an older account (joined February 2025) that Danny renamed; email on file to be confirmed and moved to `accounts@wokeainow.com` once it works | to be recorded | Claimed October 19, 2026 by renaming an existing account. Danny's attempts to create a new handle stalled on his Mac mini and iPhone; logging in by phone showed two accounts on his number, `badfaithprosecu` and one with a default `danielaguilar`-plus-digits username that was never customized, and he changed that one to `wokeainow`. Verified logged out the same day: the page loads, 0 followers, avatar and header are set. Still to fix: display name reads "Daniel" (must be `wokeai`), no bio or website shown. The account shares a phone number with `badfaithprosecu`, so X may suggest the two to each other. |
 | Bluesky | | | | | |
 | Mastodon | | | | | |
 | Instagram | | | | | |
