@@ -6,7 +6,7 @@ Written October 18, 2026. Danny tried X already and isn't sure it took. The site
 
 - **Danny creates every account himself.** The agent walks him through it in his own browser, prepares the exact text to paste, checks the result, and records what was claimed. The agent never enters passwords, never completes CAPTCHAs, and never submits a sign-up form on his behalf (those are his actions by policy).
 - **Handle priority:** `wokeai` first; if taken, `wokeainow`; if both taken, `wokeai_` or `wokeaihq`, and record which. Never a spelling that breaks the lowercase one-word rule in the display name.
-- **Email for every account:** `wokeai@grownfromconcrete.org` (the forwarding brief covers where that mail lands). Use the same recovery phone Danny chooses once, and write down where 2FA codes go.
+- **Email for every account:** `accounts@wokeainow.com`, a forward-only address that lands in danny@grownfromconcrete.org (Danny's decision, October 19, 2026; it replaced `wokeai@grownfromconcrete.org` and `wokeai@wokeainow.com`, see `docs/plans/email-forwarding.md`). The public contact address on profiles that have a contact field is `hello@wokeainow.com`. **No account is created until a test message to `accounts@wokeainow.com` has landed.** Use the same recovery phone Danny chooses once, and write down where 2FA codes go.
 - **Profile kit (same on every platform):**
   - Display name: `wokeai`
   - Avatar: the official mark, light surface (`marks/roots-official-light.svg`, exported to PNG at 400×400 for platforms that refuse SVG; the agent exports it with `qlmanage` or `sips`, no redrawing)
@@ -21,7 +21,7 @@ Written October 18, 2026. Danny tried X already and isn't sure it took. The site
 
 Do the first tier in one sitting; the rest as Danny has energy. For each: check availability of `wokeai` → create → set avatar, banner, bio, link → verify the public URL loads logged-out → log it in the table below.
 
-1. **X / Twitter** — first, because the earlier attempt is unresolved. Check x.com/wokeai and x.com/wokeainow logged-out. If Danny's attempt created an account, recover it (he may have an email from X in wokeai@ or danny@grownfromconcrete.org); if not, create it.
+1. **X / Twitter** — first, because the earlier attempt is unresolved. Check x.com/wokeai and x.com/wokeainow logged-out. If Danny's attempt created an account, recover it (he may have an email from X in danny@grownfromconcrete.org); if not, create it.
 2. **Bluesky** — handle `wokeai.bsky.social`, then set the custom handle to `wokeainow.com` by adding the DNS TXT record Bluesky gives (`_atproto` → `did=...`) at GoDaddy. That makes the handle the domain itself, which is on-brand. The agent prepares the record; Danny pastes it.
 3. **Mastodon** — pick an instance (ask Danny; a tech/activism instance fits better than mastodon.social). Add `rel="me"` verification by putting the profile link in the site footer, so the profile shows a verified link to wokeainow.com.
 4. **Instagram** — `wokeai`; link in bio; square avatar; the GIF won't play, use the static frame.
@@ -53,7 +53,7 @@ Do the first tier in one sitting; the rest as Danny has energy. For each: check 
 
 **Danny's earlier X attempt (checked October 18, 2026):** no mail in danny@grownfromconcrete.org mentions wokeai; the only X welcome mails there are for other accounts. If the attempt used the SiteGround address, the verification mail was never delivered, so X almost certainly never held a name for it. Create fresh; if X reports the email as already in use, recover it by password reset once the brand address receives mail.
 
-**Email (October 18, 2026):** the main session is moving the brand address from a grownfromconcrete.org alias to a forward-only address on wokeainow.com; `docs/plans/email-forwarding.md` will be rewritten to match. No account is created until that address receives mail.
+**Email (October 19, 2026, Danny's decision relayed by the main session):** sign-ups use `accounts@wokeainow.com`; the public contact address is `hello@wokeainow.com`; both forward to danny@grownfromconcrete.org through Forward Email. `wokeai@wokeainow.com` was dropped as redundant. Status when this was written: the wokeainow.com TXT record still listed `wokeai` and `hello`, the `accounts` alias was not yet in DNS, and no test mail to `accounts@` had landed, so no account has been created.
 
 ## Paste sheet (prepared October 18, 2026)
 
@@ -61,6 +61,8 @@ Same values on every platform. Files are in `marks/png/`, exported from `marks/r
 
 - **Handle:** `wokeai` where free (Mastodon, maybe Reddit), otherwise `wokeainow` (Danny's decision, October 18, 2026)
 - **Display name:** `wokeai`
+- **Account email (every sign-up):** `accounts@wokeainow.com`
+- **Public contact email (any contact field):** `hello@wokeainow.com`
 - **Bio, 144 characters:** `pronounced wohk/ē/eye. A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
 - **Bio with the name, 153 characters, for platforms that do not show the display name next to the bio:** `wokeai (pronounced wohk/ē/eye). A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
 - **Short bio, 121 characters, where 144 does not fit (TikTok allows 80: use `pronounced wohk/ē/eye. Open tools against systemic oppression. wokeainow.com`):** `A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
