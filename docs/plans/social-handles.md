@@ -93,3 +93,5 @@ Same values on every platform. Files are in `marks/png/`, exported from `marks/r
 | Reddit | | | | | |
 
 When done: commit this file with the table filled in, add the live profile links to `index.html`'s Join section (plain links, no embeds or widgets), and add the Mastodon `rel="me"` link. Commit messages record what was claimed and where the codes go.
+
+**Override (Danny, October 20, 2026):** the plain-links-only instruction above is overridden for the Bluesky post. `index.html` now has a "Latest post" section with Bluesky's embed (`embed.bsky.app/static/embed.js` and a bsky.app iframe). Any future profile links in the Join section remain plain links unless a new override says otherwise. See the matching note in `README.md`.

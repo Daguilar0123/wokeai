@@ -55,6 +55,8 @@ Design system **version 2**, October 18, 2026 (supersedes version 1 of the same 
 
 There is no budget. If you want to put a few dollars toward hosting the next pieces, the founder's Buy Me a Coffee is [buymeacoffee.com/danny.thetatteredrose](https://buymeacoffee.com/danny.thetatteredrose); the repo's Sponsor button goes to the same place (`.github/FUNDING.yml`). The site links to it with a plain link, not their widget, so nothing third-party loads on the page.
 
+**Override (Danny, October 20, 2026):** I am overriding the no-third-party rule above for one embed. The homepage now has a "Latest post" section under the notice (`index.html`) that embeds a Bluesky post. Bluesky's `embed.js` and a bsky.app iframe load on the page for that section. The rule still covers everything else; I have not changed the Buy Me a Coffee link. The original reason for the rule is not written down in this repo; finding it is a separate task.
+
 ## License and brand
 
 - **Code** (the site, `index.html`, `preview.html`, and anything else that runs) is licensed under the [GNU Affero General Public License v3.0](LICENSE). Use it, change it, share it; if you run a changed version for other people, hosted or installed, offer them your source.
