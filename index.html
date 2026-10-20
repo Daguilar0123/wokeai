@@ -72,6 +72,7 @@
   .btn { display: inline-block; font-weight: 600; padding: 12px 20px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
   .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .btn.quiet { background: var(--card); color: var(--fg); border: 1px solid var(--rule); }
+  button.btn { font: inherit; font-weight: 600; cursor: pointer; }
   .actions { display: flex; flex-wrap: wrap; gap: 12px; }
   .name { font-size: 44px; font-weight: 750; letter-spacing: -0.03em; line-height: 1; margin: 0; }
   .say { margin: 6px 0 0; color: var(--muted); font-size: 16px; }
@@ -122,8 +123,16 @@
 
   <section id="latest">
     <h2>Latest post</h2>
-    <p class="lede">100% #wokeai #wokeainow @wokeainow.app</p>
-    <p class="note">wokeai (@wokeainow.app) on Bluesky, October 20, 2026. <a href="https://bsky.app/profile/did:plc:h5udrydfvu42oxejhqe5piqc/post/3mycxmhknck2g" rel="noopener">Read the post on bsky.app</a>.</p>
+    <!-- Click to load (Danny, October 20, 2026): nothing from Bluesky loads with the page. The post shows as plain text and a link. The button below, shown only when JavaScript runs, loads Bluesky's embed after the visitor clicks. -->
+    <div id="post-plain">
+      <p class="lede">100% #wokeai #wokeainow @wokeainow.app</p>
+      <p class="note">wokeai (@wokeainow.app) on Bluesky, October 20, 2026. <a href="https://bsky.app/profile/did:plc:h5udrydfvu42oxejhqe5piqc/post/3mycxmhknck2g" rel="noopener">Read the post on bsky.app</a>.</p>
+      <div id="load-ui" hidden>
+        <p class="actions"><button type="button" class="btn quiet" id="load-post">Load the post from Bluesky</button></p>
+        <p class="note">Nothing from Bluesky loads until you click. Clicking loads Bluesky’s embed, which sends your IP address and this page’s address to Bluesky.</p>
+      </div>
+    </div>
+    <div id="post-embed"></div>
   </section>
 
   <section id="mission">
@@ -196,6 +205,33 @@
     }
     apply();
     if (reduce.addEventListener) reduce.addEventListener('change', apply);
+  })();
+</script>
+
+<script>
+  // Click-to-load Bluesky post. Until the button is clicked, no request goes to Bluesky.
+  (function () {
+    var ui = document.getElementById('load-ui');
+    var button = document.getElementById('load-post');
+    var plain = document.getElementById('post-plain');
+    var box = document.getElementById('post-embed');
+    if (!ui || !button || !plain || !box) return;
+    ui.hidden = false;
+    button.addEventListener('click', function () {
+      var post = document.createElement('blockquote');
+      post.className = 'bluesky-embed';
+      post.setAttribute('data-bluesky-uri', 'at://did:plc:h5udrydfvu42oxejhqe5piqc/app.bsky.feed.post/3mycxmhknck2g');
+      post.setAttribute('data-bluesky-cid', 'bafyreic7zwmnxmnjnzw5dpout4knlmrryqwp7mft3xko7p72rxgqi3yfzy');
+      post.setAttribute('data-bluesky-embed-color-mode', 'system');
+      post.textContent = 'Loading the post from Bluesky…';
+      var embed = document.createElement('script');
+      embed.async = true;
+      embed.src = 'https://embed.bsky.app/static/embed.js';
+      embed.charset = 'utf-8';
+      box.appendChild(post);
+      box.appendChild(embed);
+      plain.hidden = true;
+    });
   })();
 </script>
 
