@@ -78,6 +78,8 @@ The loop runs 7.0s:
 
 The light travels at 320 grid units per second. With `prefers-reduced-motion`, show the static official logo. On the site header, play the loop once on hover rather than continuously.
 
+**Superseded on the live site, October 20, 2026 (Danny: "make the wokeai logo on page the best version of the gif where the light goes down to the nodes then back up to the blades of grass").** The header mark now loops continuously with steps 1 and 2 only: light down from the tips to every node from 0.1s, back up from the nodes to the tips from 1.75s, done by about 2.9s, then still until the 7.0s loop restarts. Steps 3 to 5 (sink and regrow) stay in the intro card, not the header. The exported `roots-animated-*.svg` files from Claude Design carried the light geometry but no timing at all (every light layer sat at opacity 0), so the hover-once version never showed anything; the timing was added to those files as SMIL on October 20, 2026, with the mark's paths untouched. The files hide their light layers under `prefers-reduced-motion`, and the page swaps in the static mark as well.
+
 ### Rules
 
 - Minimum size: 24px beside text, 32px alone. Below 32px, use the favicon cut.

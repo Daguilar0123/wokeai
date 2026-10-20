@@ -105,12 +105,11 @@
 <div class="wrap">
   <header>
     <div class="lockup">
-      <!-- Official Roots mark (design system v2). Static file by theme; the animated file plays once on hover unless the visitor prefers reduced motion. -->
+      <!-- Official Roots mark (design system v2), animated: the light runs down from the grass tips to every node, then back up to the tips, on a 7-second loop (Danny, October 20, 2026). The SVG hides its light layers under prefers-reduced-motion, and the script below swaps in the static file as well. -->
       <picture>
-        <source srcset="marks/roots-official-dark.svg" media="(prefers-color-scheme: dark)">
-        <img id="mark" src="marks/roots-official-light.svg" width="72" height="72" alt="wokeai mark: three clumps of grass above a ground line, with roots drawn as a branching network"
-             data-static-light="marks/roots-official-light.svg" data-static-dark="marks/roots-official-dark.svg"
-             data-animated-light="marks/roots-animated-light.svg" data-animated-dark="marks/roots-animated-dark.svg">
+        <source srcset="marks/roots-animated-dark.svg" media="(prefers-color-scheme: dark)">
+        <img id="mark" src="marks/roots-animated-light.svg" width="72" height="72" alt="wokeai mark: three clumps of grass above a ground line, with roots drawn as a branching network"
+             data-static-light="marks/roots-official-light.svg" data-static-dark="marks/roots-official-dark.svg">
       </picture>
       <div>
         <h1 class="name">wokeai</h1>
@@ -178,28 +177,19 @@
 </div>
 
 <script>
-  // Play the animated mark once on hover or focus; static otherwise, and always static under prefers-reduced-motion.
+  // The mark loops on its own (SMIL inside the SVG). Under prefers-reduced-motion, show the static official mark instead.
   (function () {
     var img = document.getElementById('mark');
-    if (!img) return;
+    if (!img || !window.matchMedia) return;
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    var dark = window.matchMedia('(prefers-color-scheme: dark)');
-    var timer = null;
-    function pick(kind) { return img.getAttribute('data-' + kind + '-' + (dark.matches ? 'dark' : 'light')); }
-    function play() {
-      if (reduce.matches || timer) return;
+    function apply() {
+      if (!reduce.matches) return;
       var source = img.parentElement.querySelector('source');
-      if (source) source.removeAttribute('srcset');
-      img.src = pick('animated') + '?t=' + Date.now();
-      timer = setTimeout(function () {
-        img.src = pick('static');
-        if (source) source.setAttribute('srcset', 'marks/roots-official-dark.svg');
-        timer = null;
-      }, 7000);
+      if (source) source.setAttribute('srcset', img.getAttribute('data-static-dark'));
+      img.src = img.getAttribute('data-static-light');
     }
-    img.addEventListener('mouseenter', play);
-    img.addEventListener('focus', play);
-    img.tabIndex = 0;
+    apply();
+    if (reduce.addEventListener) reduce.addEventListener('change', apply);
   })();
 </script>
 
