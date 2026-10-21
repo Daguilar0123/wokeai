@@ -1,0 +1,206 @@
+<!doctype html>
+<!--
+  wokeai LinkedIn compositions (October 21, 2026).
+  One page, many layouts: compose.html?layout=feed&theme=light&w=1200&h=627&mode=still
+  Colors and type come from design/system/tokens.json at load; nothing here types a color.
+  The marks are the files in /marks/, used unchanged: <img> for stills, <object> for the
+  animated files (so render.mjs can set their SMIL clock), and roots-blueprint.svg inlined
+  as-is inside a span colored `surface` on the accent layout.
+  window.__ready resolves with a layout report, or rejects (and render.mjs aborts) if the font,
+  the motion setting, the clear space, or the safe box is wrong.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@100..900&display=block">
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; }
+  body { background: var(--stage-bg); }
+  #stage { position: relative; overflow: hidden; background: var(--stage-bg); font-family: var(--font-sans); }
+  .group { position: absolute; display: flex; flex-direction: column; align-items: center; }
+  .lockup { display: flex; }
+  .lockup.h { flex-direction: row; align-items: center; gap: calc(var(--k) * 18px); }
+  .lockup.s { flex-direction: column; align-items: center; gap: calc(var(--k) * 12px); text-align: center; }
+  .mark { display: block; flex: none; width: var(--mark); height: var(--mark); }
+  .mark svg { display: block; width: 100%; height: 100%; }
+  .lockup.h { --mark: calc(var(--k) * 72px); }
+  .lockup.s { --mark: calc(var(--k) * 64px); }
+  .name { margin: 0; font-weight: 750; letter-spacing: -0.03em; line-height: 1; color: var(--text-strong); white-space: nowrap; }
+  .lockup.h .name { font-size: calc(var(--k) * 44px); }
+  .lockup.s .name { font-size: calc(var(--k) * 28px); }
+  .say { margin: 0; font-weight: 400; line-height: 1.4; color: var(--text-soft); white-space: nowrap; }
+  .say em { font-style: normal; color: var(--text-strong); }
+  .lockup.h .say { font-size: calc(var(--k) * 16px); margin-top: calc(var(--k) * 6px); }
+  /* stacked: the caption keeps the horizontal lockup's caption-to-name ratio (16/44, gap 6/44) */
+  .lockup.s .say { font-size: calc(var(--k) * 28px * 16 / 44); margin-top: calc(var(--k) * 28px * 6 / 44); }
+  /* portrait line 2: `lede` style (21px, 1.4, 400) in ink, scaled with the lockup so the wrap is fixed */
+  .line2 { margin: calc(var(--k) * 24px) 0 0; font-weight: 400; line-height: 1.4; color: var(--text-strong);
+           text-align: center; font-size: calc(var(--k) * 10px); max-width: calc(var(--k) * 168px); text-wrap: balance; }
+</style>
+</head>
+<body>
+<div id="stage"><div class="group" id="group"></div></div>
+<script>
+(() => {
+  const q = new URLSearchParams(location.search);
+  const layout = q.get('layout'), theme = q.get('theme'), mode = q.get('mode') || 'still';
+  const W = +q.get('w'), H = +q.get('h');
+  const LINE1 = 'pronounced wohk/ē/eye';
+  const LINE2 = 'A grassroots, open-source community for people using their own AI to push back against systemic oppression.';
+
+  // layout table: lockup form, caption, extra line, safe box [x0, y0, x1, y1] as fractions or px
+  const L = {
+    feed:           { form: 'h', caption: true,  safe: [64, 64, W - 64, H - 64] },
+    square:         { form: 's', caption: true,  safe: [64, 64, W - 64, H - 64] },
+    'square-accent':{ form: 's', caption: true,  safe: [64, 64, W - 64, H - 64] },
+    portrait:       { form: 's', caption: false, line2: true, safe: [110, 64, W - 110, H - 64] },
+    // profile banner: inside the mobile center crop (192..1392), right of the desktop photo
+    // (about the first 360px of the bottom half), and in the upper two-thirds (Danny, Oct 21, 2026)
+    'profile-banner':{ form: 'h', caption: true, safe: [420, 24, 1392, 264] },
+    'company-cover':{ form: 'h', caption: false, safe: [W * 0.10, H * 0.11, W * 0.90, H * 0.89] },
+  }[layout];
+  if (!L || !W || !H || !['light', 'dark', 'accent'].includes(theme)) throw new Error('bad params ' + location.search);
+
+  const fail = (msg) => { throw new Error(msg); };
+  const raf2 = (win) => new Promise((r) => win.requestAnimationFrame(() => win.requestAnimationFrame(r)));
+
+  async function build() {
+    const tokens = await (await fetch('/design/system/tokens.json')).json();
+    const palette = theme === 'dark' ? 'dark' : 'light';
+    const root = document.documentElement.style;
+    for (const t of tokens.color.tokens) root.setProperty('--' + t.name, t.value[palette]);
+    root.setProperty('--font-sans', tokens.type.families.sans);
+    const accent = theme === 'accent';
+    root.setProperty('--stage-bg', accent ? 'var(--accent)' : 'var(--surface)');
+    root.setProperty('--text-strong', accent ? 'var(--accent-ink)' : 'var(--ink)');
+    root.setProperty('--text-soft', accent ? 'var(--accent-ink)' : 'var(--muted)');
+    const stage = document.getElementById('stage');
+    stage.style.width = W + 'px'; stage.style.height = H + 'px';
+
+    const group = document.getElementById('group');
+    const lockup = document.createElement('div');
+    lockup.className = 'lockup ' + L.form;
+    group.appendChild(lockup);
+
+    // the mark, unchanged
+    let mark, markReady;
+    if (accent) {
+      mark = document.createElement('span');
+      mark.style.color = 'var(--surface)';            // blueprint in surface on accent (brand book)
+      const svgText = await (await fetch('/marks/roots-blueprint.svg')).text();
+      mark.innerHTML = svgText;
+      markReady = Promise.resolve();
+    } else if (mode === 'motion') {
+      mark = document.createElement('object');
+      mark.type = 'image/svg+xml';
+      mark.data = `/marks/roots-animated-${palette}.svg`;
+      markReady = new Promise((res, rej) => { mark.onload = res; mark.onerror = () => rej(new Error('object failed')); });
+    } else {
+      mark = document.createElement('img');
+      mark.alt = 'wokeai mark';
+      mark.src = `/marks/roots-official-${palette}.svg`;
+      markReady = new Promise((res, rej) => { mark.onload = res; mark.onerror = () => rej(new Error('img failed')); });
+    }
+    mark.classList.add('mark');
+    lockup.appendChild(mark);
+
+    const text = document.createElement('div');
+    lockup.appendChild(text);
+    const name = document.createElement('p'); name.className = 'name'; name.textContent = 'wokeai'; text.appendChild(name);
+    let say = null, line2 = null;
+    if (L.caption) {
+      say = document.createElement('p'); say.className = 'say';
+      say.innerHTML = 'pronounced <em>wohk/ē/eye</em>';
+      text.appendChild(say);
+    }
+    if (L.line2) {
+      line2 = document.createElement('p'); line2.className = 'line2'; line2.textContent = LINE2;
+      group.appendChild(line2);
+    }
+
+    // font: the real 750 instance of Archivo, including the ē glyph (latin-ext subset)
+    await document.fonts.load('750 100px Archivo', 'wokeai');
+    await document.fonts.load('400 100px Archivo', 'pronounced wohk/ē/eye ' + LINE2);
+    await document.fonts.ready;
+    const faces = [...document.fonts].filter((f) => f.family.replace(/"/g, '') === 'Archivo' && f.status === 'loaded');
+    if (!faces.length) fail('Archivo did not load');
+    if (!faces.some((f) => /^100 900$/.test(f.weight))) fail('Archivo variable range not loaded: ' + faces.map((f) => f.weight).join(','));
+    const ctx = document.createElement('canvas').getContext('2d');
+    ctx.font = '750 100px Archivo'; const wA = ctx.measureText('wokeai').width;
+    ctx.font = '750 100px serif'; const wF = ctx.measureText('wokeai').width;
+    if (Math.abs(wA - wF) / wF < 0.01) fail('wordmark width equals the fallback: Archivo not in use');
+
+    await markReady;
+
+    // motion: the SVG's own clock, paused; reduced motion must be off in both documents
+    let svgDoc = null;
+    if (mode === 'motion') {
+      svgDoc = mark.contentDocument;
+      if (!svgDoc || !svgDoc.documentElement || svgDoc.documentElement.localName !== 'svg') fail('object has no SVG document');
+      const win = mark.contentWindow;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches || win.matchMedia('(prefers-reduced-motion: reduce)').matches)
+        fail('prefers-reduced-motion is on; the light would be hidden');
+      const light = svgDoc.querySelector('.light');
+      if (!light || win.getComputedStyle(light).display === 'none') fail('light layer hidden');
+      svgDoc.documentElement.pauseAnimations();
+      svgDoc.documentElement.setCurrentTime(0);
+      window.__seek = async (t) => { svgDoc.documentElement.setCurrentTime(t); await raf2(win); await raf2(window); return t; };
+    }
+
+    // fit: one factor k for the whole composition, the largest that fits the safe box
+    const [x0, y0, x1, y1] = L.safe;
+    const setK = (k) => document.documentElement.style.setProperty('--k', String(k));
+    let k = 4;
+    for (let i = 0; i < 3; i++) {
+      setK(k); await raf2(window);
+      const r = group.getBoundingClientRect();
+      k = k * Math.min((x1 - x0) / r.width, (y1 - y0) / r.height);
+    }
+    k = Math.floor(k * 1000) / 1000;
+    for (let i = 0; i < 50; i++) {
+      setK(k); await raf2(window);
+      const r = group.getBoundingClientRect();
+      if (r.width <= x1 - x0 && r.height <= y1 - y0) break;
+      k = Math.floor(k * 995) / 1000;
+    }
+    const gr = group.getBoundingClientRect();
+    group.style.left = (x0 + (x1 - x0 - gr.width) / 2) + 'px';
+    group.style.top = (y0 + (y1 - y0 - gr.height) / 2) + 'px';
+    await raf2(window);
+
+    // assertions
+    const box = (el) => { const r = el.getBoundingClientRect(); return { x0: r.left, y0: r.top, x1: r.right, y1: r.bottom }; };
+    const tbox = (el) => { const rg = document.createRange(); rg.selectNodeContents(el); const r = rg.getBoundingClientRect();
+      return { x0: r.left, y0: r.top, x1: r.right, y1: r.bottom }; };
+    const g = box(group);
+    const eps = 0.5;
+    if (g.x0 < x0 - eps || g.y0 < y0 - eps || g.x1 > x1 + eps || g.y1 > y1 + eps) fail('outside safe box ' + JSON.stringify(g));
+    // the mark's drawn content on its 512 grid: x 105..407, y 78..424 (strokes and nodes included)
+    const m = box(mark), s = (m.x1 - m.x0) / 512;
+    const content = { x0: m.x0 + 105 * s, y0: m.y0 + 78 * s, x1: m.x0 + 407 * s, y1: m.y0 + 424 * s };
+    const clear = 34 * s; // one eighth of the 272-unit ground line
+    const gap = (a, b) => Math.max(b.x0 - a.x1, a.x0 - b.x1, b.y0 - a.y1, a.y0 - b.y1);
+    const texts = [name, say, line2].filter(Boolean);
+    const clearReport = {};
+    for (const el of texts) {
+      const d = gap(content, tbox(el));
+      clearReport[el.className] = Math.round(d);
+      if (d < clear - eps) fail(`clear space ${d.toFixed(1)} < ${clear.toFixed(1)} for .${el.className}`);
+    }
+    const allText = texts.map((el) => el.textContent).join(' | ');
+    const expected = ['wokeai', L.caption ? LINE1 : null, L.line2 ? LINE2 : null].filter(Boolean).join(' | ');
+    if (allText !== expected) fail('text mismatch: ' + allText);
+    if ((allText.match(/pronounced/g) || []).length > 1) fail('pronunciation line more than once');
+
+    return { layout, theme, mode, w: W, h: H, k, markPx: Math.round(m.x1 - m.x0), clearPx: Math.round(clear),
+             clearMeasured: clearReport, group: g, text: allText,
+             font: faces.map((f) => f.weight + ' ' + f.unicodeRange.slice(0, 24)) };
+  }
+
+  window.__ready = build();
+})();
+</script>
+</body>
+</html>
