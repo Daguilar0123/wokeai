@@ -168,8 +168,35 @@ async function renderMotion(cdp, base, job) {
   return { ...pg.report, files: [job.mp4, job.gif], frames: path.join(FRAMES, job.name) };
 }
 
+// legacy-line: fit the old pronunciation line in marks/og.png and draw the new one (see legacy-line.html);
+// writes fit.json, old-line.png and new-line.png to $FRAMES_DIR/legacy for legacy.py
+const LEGACY = { src: '/marks/og.png', box: '90,250,420,305',
+  old: '(pronounced wohk/ē/eye).', new: '(pronounced wōk•ē•ī).' };  // Danny, October 21, 2026
+async function legacyLine() {
+  const srv = await serve(); const base = `http://127.0.0.1:${srv.address().port}`;
+  const cdp = await launchChrome();
+  try {
+    const { targetId } = await cdp.send('Target.createTarget', { url: 'about:blank' });
+    const { sessionId } = await cdp.send('Target.attachToTarget', { targetId, flatten: true });
+    const s = (m, p) => cdp.send(m, p, sessionId);
+    await s('Page.enable');
+    const loaded = cdp.once('Page.loadEventFired', sessionId);
+    await s('Page.navigate', { url: `${base}/design/system/social/linkedin/src/legacy-line.html?${new URLSearchParams(LEGACY)}` });
+    await loaded;
+    const r = await s('Runtime.evaluate', { expression: 'window.__result', awaitPromise: true, returnByValue: true });
+    if (r.exceptionDetails) throw new Error('legacy-line: ' + (r.exceptionDetails.exception?.description || r.exceptionDetails.text));
+    const { oldURL, newURL, ...fit } = r.result.value;
+    const dir = path.join(FRAMES, 'legacy'); await fsp.mkdir(dir, { recursive: true });
+    await fsp.writeFile(path.join(dir, 'old-line.png'), Buffer.from(oldURL.split(',')[1], 'base64'));
+    await fsp.writeFile(path.join(dir, 'new-line.png'), Buffer.from(newURL.split(',')[1], 'base64'));
+    await fsp.writeFile(path.join(dir, 'fit.json'), JSON.stringify({ ...fit, old: LEGACY.old, new: LEGACY.new }, null, 2));
+    console.log('legacy-line fit', JSON.stringify(fit), '->', dir);
+  } finally { await cdp.close(); srv.close(); }
+}
+
 async function main() {
   const want = process.argv.slice(2);
+  if (want[0] === 'legacy-line') return legacyLine();
   const jobs = JOBS.filter((j) => !want.length || want.includes('all') || want.includes(j.kind === 'still' ? 'stills' : 'motion') || want.includes(j.name));
   if (!jobs.length) throw new Error('no jobs match ' + want.join(' '));
   const srv = await serve(); const base = `http://127.0.0.1:${srv.address().port}`;

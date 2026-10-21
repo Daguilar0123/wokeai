@@ -47,7 +47,10 @@
   const q = new URLSearchParams(location.search);
   const layout = q.get('layout'), theme = q.get('theme'), mode = q.get('mode') || 'still';
   const W = +q.get('w'), H = +q.get('h');
-  const LINE1 = 'pronounced wohk/ē/eye';
+  // Danny, October 21, 2026: "I like the • instead of the / from now on. Change everywhere, including the images."
+  // ō U+014D, ē U+0113, ī U+012B, • U+2022. Replaces "pronounced wohk/ē/eye" (Oct 18) and the brief "wōk/ē/ī" (Oct 21).
+  const SAY_WORD = 'wōk•ē•ī';
+  const LINE1 = 'pronounced ' + SAY_WORD;
   const LINE2 = 'A grassroots, open-source community for people using their own AI to push back against systemic oppression.';
 
   // layout table: lockup form, caption, extra line, safe box [x0, y0, x1, y1] as fractions or px
@@ -112,7 +115,8 @@
     let say = null, line2 = null;
     if (L.caption) {
       say = document.createElement('p'); say.className = 'say';
-      say.innerHTML = 'pronounced <em>wohk/ē/eye</em>';
+      say.append('pronounced ');
+      const em = document.createElement('em'); em.textContent = SAY_WORD; say.appendChild(em);
       text.appendChild(say);
     }
     if (L.line2) {
@@ -120,9 +124,9 @@
       group.appendChild(line2);
     }
 
-    // font: the real 750 instance of Archivo, including the ē glyph (latin-ext subset)
+    // font: the real 750 instance of Archivo, including ō ē ī (latin-ext subset) and •
     await document.fonts.load('750 100px Archivo', 'wokeai');
-    await document.fonts.load('400 100px Archivo', 'pronounced wohk/ē/eye ' + LINE2);
+    await document.fonts.load('400 100px Archivo', LINE1 + ' ' + LINE2);
     await document.fonts.ready;
     const faces = [...document.fonts].filter((f) => f.family.replace(/"/g, '') === 'Archivo' && f.status === 'loaded');
     if (!faces.length) fail('Archivo did not load');
@@ -131,6 +135,15 @@
     ctx.font = '750 100px Archivo'; const wA = ctx.measureText('wokeai').width;
     ctx.font = '750 100px serif'; const wF = ctx.measureText('wokeai').width;
     if (Math.abs(wA - wF) / wF < 0.01) fail('wordmark width equals the fallback: Archivo not in use');
+    // every glyph of the line must come from Archivo: with two different fallbacks behind it, a glyph Archivo
+    // lacks would measure differently; one it has measures the same
+    const glyphs = {};
+    for (const ch of new Set([...LINE1])) {
+      ctx.font = '400 100px Archivo, serif'; const a = ctx.measureText(ch).width;
+      ctx.font = '400 100px Archivo, monospace'; const b = ctx.measureText(ch).width;
+      if (Math.abs(a - b) > 0.01) fail(`glyph ${ch} (U+${ch.codePointAt(0).toString(16).toUpperCase()}) is not in Archivo`);
+      if ('ōēī•'.includes(ch)) glyphs[ch] = Math.round(a * 10) / 10;
+    }
 
     await markReady;
 
@@ -195,7 +208,7 @@
     if ((allText.match(/pronounced/g) || []).length > 1) fail('pronunciation line more than once');
 
     return { layout, theme, mode, w: W, h: H, k, markPx: Math.round(m.x1 - m.x0), clearPx: Math.round(clear),
-             clearMeasured: clearReport, group: g, text: allText,
+             clearMeasured: clearReport, group: g, text: allText, glyphs,
              font: faces.map((f) => f.weight + ' ' + f.unicodeRange.slice(0, 24)) };
   }
 
