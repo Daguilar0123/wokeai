@@ -6,12 +6,12 @@ Version 2, October 18, 2026. Supersedes the October 18 upload (version 1). Danny
 
 ## Intro
 
-wokeai (pronounced wōk/ē/ī). A grassroots, open-source community for people using their own AI to push back against systemic oppression. Open tools, shared in common. Starting small. wokeainow.com
+wokeai (pronounced wōk•ē•ī). A grassroots, open-source community for people using their own AI to push back against systemic oppression. Open tools, shared in common. Starting small. wokeainow.com
 
 ## The name
 
 - **wokeai**: one word, always lowercase, even at the start of a sentence. Never *Wokeai*, never *woke AI* when you mean the brand, never *wokeainow* (that is only the domain).
-- **Pronunciation line**: `pronounced wōk/ē/ī`, set in `caption`, `muted`, under the wordmark wherever there is room for a second line. State it once per surface. Respelled from `pronounced wohk/ē/eye` on October 21, 2026 (Danny); same sound. Check that ō, ē, and ī render in Archivo before shipping.
+- **Pronunciation line**: `pronounced wōk•ē•ī`, set in `caption`, `muted`, under the wordmark wherever there is room for a second line. State it once per surface. Respelled from `pronounced wohk/ē/eye` on October 21, 2026 (Danny); same sound. Check that ō, ē, and ī render in Archivo before shipping.
 - **Secondary wordmark**: `wōke•ĀĪ`, set in `wordmark-secondary`. Use it on social headers, merch, the home page's "The name" block, and in the podcast tagline. Check that Ā, Ī, ō, and • render in Archivo before shipping.
 - **Podcast** (future): **wahkeeye**, tagline `pronounced wōke•ĀĪ`, with the Heard mark.
 

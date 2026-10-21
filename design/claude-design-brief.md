@@ -1,6 +1,6 @@
 # Claude Design brief: wokeai design system
 
-> **Pronunciation respelled October 21, 2026 (Danny):** the line is now **pronounced wōk/ē/ī**. This file records what was sent on October 18 and keeps the old spelling; use the new one if you paste it again.
+> **Pronunciation respelled October 21, 2026 (Danny):** the line is now **pronounced wōk•ē•ī**. This file records what was sent on October 18 and keeps the old spelling; use the new one if you paste it again.
 
 Written 2026-10-18. Paste the block under "PROMPT" into Claude Design. Upload the files listed under "UPLOAD" with it.
 

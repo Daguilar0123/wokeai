@@ -11,7 +11,7 @@ Written October 18, 2026. Danny tried X already and isn't sure it took. The site
   - Display name: `wokeai`
   - Avatar: the official mark, light surface (`marks/roots-official-light.svg`, exported to PNG at 400×400 for platforms that refuse SVG; the agent exports it with `qlmanage` or `sips`, no redrawing)
   - Header/banner: `design/system/social/wokeai-brand-intro.gif` for platforms that take 1200×600 or wider; a static first frame (`marks/og.png`) where GIFs are refused
-  - Bio (≤160 chars): `pronounced wōk/ē/ī. A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
+  - Bio (≤160 chars): `pronounced wōk•ē•ī. A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
   - Longer "About" where allowed: the Facebook About in `design/social-copy.md`
   - Link: https://wokeainow.com
   - Pronouns/location fields: Danny decides live.
@@ -57,7 +57,7 @@ Do the first tier in one sitting; the rest as Danny has energy. For each: check 
 
 ## Paste sheet (prepared October 18, 2026)
 
-**Respelled October 21, 2026 (Danny):** the pronunciation line is now `wōk/ē/ī`, and the bios and counts below use it. A profile that was already given the old `wohk/ē/eye` bio needs it pasted again.
+**Respelled October 21, 2026 (Danny):** the pronunciation line is now `wōk•ē•ī`, and the bios and counts below use it. A profile that was already given the old `wohk/ē/eye` bio needs it pasted again.
 
 Same values on every platform. Files are in `marks/png/`, exported from `marks/roots-official-light.svg` and `marks/og.png` with Quick Look and Pillow, never redrawn, flattened onto `surface` `#f6f4ef` so circle crops never show black.
 
@@ -65,9 +65,9 @@ Same values on every platform. Files are in `marks/png/`, exported from `marks/r
 - **Display name:** `wokeai`
 - **Account email (every sign-up):** `accounts@wokeainow.com`
 - **Public contact email (any contact field):** `hello@wokeainow.com`
-- **Bio, 141 characters:** `pronounced wōk/ē/ī. A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
-- **Bio with the name, 150 characters, for platforms that do not show the display name next to the bio:** `wokeai (pronounced wōk/ē/ī). A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
-- **Short bio, 121 characters, where 141 does not fit (TikTok allows 80: use `pronounced wōk/ē/ī. Open tools against systemic oppression. wokeainow.com`):** `A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
+- **Bio, 141 characters:** `pronounced wōk•ē•ī. A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
+- **Bio with the name, 150 characters, for platforms that do not show the display name next to the bio:** `wokeai (pronounced wōk•ē•ī). A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
+- **Short bio, 121 characters, where 141 does not fit (TikTok allows 80: use `pronounced wōk•ē•ī. Open tools against systemic oppression. wokeainow.com`):** `A grassroots, open-source community for people using their own AI to push back against systemic oppression. wokeainow.com`
 - **Link:** `https://wokeainow.com`
 - **Avatar:** `marks/png/wokeai-avatar-400.png`; `wokeai-avatar-800.png` for Instagram, TikTok and YouTube, which upscale small files badly
 - **Header 1500×500 (X, Bluesky, Mastodon):** `marks/png/wokeai-header-1500x500.png` (the intro card centered on surface, no crop)
@@ -90,7 +90,7 @@ Same values on every platform. Files are in `marks/png/`, exported from `marks/r
 | Threads | | | | | |
 | TikTok | | | | | |
 | YouTube | | | | | |
-| LinkedIn | | | | | |
+| LinkedIn | not recorded | not recorded | not recorded | not recorded | Created by Danny on October 21, 2026 as a subpage of his Danny's Digital Designs company page, "for now" (his words), rather than the standalone Page planned above. Tagline as he set it: `It's pronounced wōk•ē•ī not Wōke•ĀĪ`. Handle, URL, and admin details not yet recorded here. |
 | Facebook | | | | | |
 | Reddit | | | | | |
 
