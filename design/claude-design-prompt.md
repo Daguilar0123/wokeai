@@ -1,5 +1,7 @@
 # Claude Design prompt (2026-10-18)
 
+> **Pronunciation respelled October 21, 2026 (Danny):** the line is now **pronounced wōk/ē/ī**. This file records what was sent on October 18 and keeps the old spelling; use the new one if you paste it again.
+
 The design system already exists; Claude Design's job is to build screens on it. Paste the block under PROMPT. Attach the files under UPLOAD with the same message.
 
 ## UPLOAD
