@@ -45,6 +45,17 @@ const JOBS = [
       mp4: `wokeai-linkedin-motion-feed-1200x628-${t}.mp4`, gif: `wokeai-linkedin-motion-feed-1200x627-${t}.gif` },
   ]),
 ];
+JOBS.forEach((j) => { j.set = 'linkedin'; j.out = OUT; });
+
+// Executive Order 14319 set (Danny, October 22, 2026: "i would like some socials made up for it"),
+// written to design/system/social/eo14319/; render it alone with `render.mjs eo14319`
+const EO_OUT = path.resolve(HERE, '../../eo14319');
+JOBS.push(...['light', 'dark'].flatMap((t) => [
+  { kind: 'still', slot: 'square', layout: 'eo-square', w: 1080, h: 1080, theme: t, file: `wokeai-eo14319-square-1080x1080-${t}.png` },
+  { kind: 'still', slot: 'feed', layout: 'eo-feed', w: 1200, h: 627, theme: t, file: `wokeai-eo14319-feed-1200x627-${t}.png` },
+  { kind: 'motion', slot: 'motion-square', layout: 'eo-square', w: 1080, h: 1080, theme: t,
+    mp4: `wokeai-eo14319-motion-square-1080x1080-${t}.mp4`, gif: `wokeai-eo14319-motion-square-1080x1080-${t}.gif` },
+].map((j) => ({ ...j, set: 'eo14319', out: EO_OUT }))));
 JOBS.forEach((j) => { j.name = j.file ? j.file.replace(/\.png$/, '') : j.mp4.replace(/\.mp4$/, '').replace('-1200x628', '-1200x627'); });
 
 // ---- static server ----
@@ -160,9 +171,9 @@ async function renderMotion(cdp, base, job) {
   const vf = (job.padTo ? `pad=${job.w}:${job.padTo}:0:0:color=${bg},` : '') + toYuv;
   ff(['-framerate', '30', '-i', path.join(sets[0].dir, '%04d.png'), '-vf', vf, '-c:v', 'libx264', '-profile:v', 'high',
     '-preset', 'slow', '-crf', '16', '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709',
-    '-color_range', 'tv', '-movflags', '+faststart', '-an', path.join(OUT, job.mp4)]);
+    '-color_range', 'tv', '-movflags', '+faststart', '-an', path.join(job.out, job.mp4)]);
   // GIF through Pillow with a fixed palette that holds every token color exactly (see gif.py)
-  const g = spawnSync('python3', ['-P', path.join(HERE, 'gif.py'), sets[1].dir, path.join(OUT, job.gif),
+  const g = spawnSync('python3', ['-P', path.join(HERE, 'gif.py'), sets[1].dir, path.join(job.out, job.gif),
     job.theme === 'dark' ? 'dark' : 'light'], { stdio: 'inherit' });
   if (g.status !== 0) throw new Error('gif.py failed for ' + job.gif);
   return { ...pg.report, files: [job.mp4, job.gif], frames: path.join(FRAMES, job.name) };
@@ -197,16 +208,17 @@ async function legacyLine() {
 async function main() {
   const want = process.argv.slice(2);
   if (want[0] === 'legacy-line') return legacyLine();
-  const jobs = JOBS.filter((j) => !want.length || want.includes('all') || want.includes(j.kind === 'still' ? 'stills' : 'motion') || want.includes(j.name));
+  const jobs = JOBS.filter((j) => !want.length || want.includes('all') || want.includes(j.kind === 'still' ? 'stills' : 'motion') || want.includes(j.set) || want.includes(j.name));
   if (!jobs.length) throw new Error('no jobs match ' + want.join(' '));
   const srv = await serve(); const base = `http://127.0.0.1:${srv.address().port}`;
   const cdp = await launchChrome();
   const reports = [];
   try {
     for (const job of jobs) {
+      await fsp.mkdir(job.out, { recursive: true });
       if (job.kind === 'still') {
         const pg = await openPage(cdp, base, job, 'still');
-        await pg.shot(path.join(OUT, job.file));
+        await fsp.mkdir(job.out, { recursive: true }); await pg.shot(path.join(job.out, job.file));
         reports.push({ ...pg.report, files: [job.file] });
         await pg.close();
       } else {

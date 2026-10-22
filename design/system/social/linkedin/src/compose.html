@@ -32,6 +32,7 @@
   .lockup.s .name { font-size: calc(var(--k) * 28px); }
   .say { margin: 0; font-weight: 400; line-height: 1.4; color: var(--text-soft); white-space: nowrap; }
   .say em { font-style: normal; color: var(--text-strong); }
+  .say.eo2 { color: var(--text-strong); margin-top: 0 !important; }
   .lockup.h .say { font-size: calc(var(--k) * 16px); margin-top: calc(var(--k) * 6px); }
   /* stacked: the caption keeps the horizontal lockup's caption-to-name ratio (16/44, gap 6/44) */
   .lockup.s .say { font-size: calc(var(--k) * 28px * 16 / 44); margin-top: calc(var(--k) * 28px * 6 / 44); }
@@ -52,6 +53,10 @@
   const SAY_WORD = 'wōk•ē•ī';
   const LINE1 = 'pronounced ' + SAY_WORD;
   const LINE2 = 'A grassroots, open-source community for people using their own AI to push back against systemic oppression.';
+  // Executive Order 14319 set (Danny, October 22, 2026: "i would like some socials made up for it"):
+  // the only two lines allowed on those images, one under the other
+  const EO_LINE = 'Executive Order 14319, July 23, 2025';
+  const EO_ANSWER = 'wokeai answers it. wokeainow.com';
 
   // layout table: lockup form, caption, extra line, safe box [x0, y0, x1, y1] as fractions or px
   const L = {
@@ -63,6 +68,9 @@
     // (about the first 360px of the bottom half), and in the upper two-thirds (Danny, Oct 21, 2026)
     'profile-banner':{ form: 'h', caption: true, safe: [420, 24, 1392, 264] },
     'company-cover':{ form: 'h', caption: false, safe: [W * 0.10, H * 0.11, W * 0.90, H * 0.89] },
+    // Executive Order 14319 set: the wordmark, then the order line in `muted` and the answer in `ink`
+    'eo-square':    { form: 's', caption: false, eo: true, safe: [64, 64, W - 64, H - 64] },
+    'eo-feed':      { form: 'h', caption: false, eo: true, safe: [64, 64, W - 64, H - 64] },
   }[layout];
   if (!L || !W || !H || !['light', 'dark', 'accent'].includes(theme)) throw new Error('bad params ' + location.search);
 
@@ -112,7 +120,11 @@
     const text = document.createElement('div');
     lockup.appendChild(text);
     const name = document.createElement('p'); name.className = 'name'; name.textContent = 'wokeai'; text.appendChild(name);
-    let say = null, line2 = null;
+    let say = null, line2 = null, eo1 = null, eo2 = null;
+    if (L.eo) {
+      eo1 = document.createElement('p'); eo1.className = 'say eo1'; eo1.textContent = EO_LINE; text.appendChild(eo1);
+      eo2 = document.createElement('p'); eo2.className = 'say eo2'; eo2.textContent = EO_ANSWER; text.appendChild(eo2);
+    }
     if (L.caption) {
       say = document.createElement('p'); say.className = 'say';
       say.append('pronounced ');
@@ -126,7 +138,7 @@
 
     // font: the real 750 instance of Archivo, including ō ē ī (latin-ext subset) and •
     await document.fonts.load('750 100px Archivo', 'wokeai');
-    await document.fonts.load('400 100px Archivo', LINE1 + ' ' + LINE2);
+    await document.fonts.load('400 100px Archivo', [LINE1, LINE2, EO_LINE, EO_ANSWER].join(' '));
     await document.fonts.ready;
     const faces = [...document.fonts].filter((f) => f.family.replace(/"/g, '') === 'Archivo' && f.status === 'loaded');
     if (!faces.length) fail('Archivo did not load');
@@ -138,7 +150,8 @@
     // every glyph of the line must come from Archivo: with two different fallbacks behind it, a glyph Archivo
     // lacks would measure differently; one it has measures the same
     const glyphs = {};
-    for (const ch of new Set([...LINE1])) {
+    const shown = L.eo ? EO_LINE + EO_ANSWER : LINE1 + (L.line2 ? LINE2 : '');
+    for (const ch of new Set([...shown])) {
       ctx.font = '400 100px Archivo, serif'; const a = ctx.measureText(ch).width;
       ctx.font = '400 100px Archivo, monospace'; const b = ctx.measureText(ch).width;
       if (Math.abs(a - b) > 0.01) fail(`glyph ${ch} (U+${ch.codePointAt(0).toString(16).toUpperCase()}) is not in Archivo`);
@@ -195,7 +208,7 @@
     const content = { x0: m.x0 + 105 * s, y0: m.y0 + 78 * s, x1: m.x0 + 407 * s, y1: m.y0 + 424 * s };
     const clear = 34 * s; // one eighth of the 272-unit ground line
     const gap = (a, b) => Math.max(b.x0 - a.x1, a.x0 - b.x1, b.y0 - a.y1, a.y0 - b.y1);
-    const texts = [name, say, line2].filter(Boolean);
+    const texts = [name, say, eo1, eo2, line2].filter(Boolean);
     const clearReport = {};
     for (const el of texts) {
       const d = gap(content, tbox(el));
@@ -203,7 +216,8 @@
       if (d < clear - eps) fail(`clear space ${d.toFixed(1)} < ${clear.toFixed(1)} for .${el.className}`);
     }
     const allText = texts.map((el) => el.textContent).join(' | ');
-    const expected = ['wokeai', L.caption ? LINE1 : null, L.line2 ? LINE2 : null].filter(Boolean).join(' | ');
+    const expected = ['wokeai', L.eo ? EO_LINE : null, L.eo ? EO_ANSWER : null, L.caption ? LINE1 : null,
+                      L.line2 ? LINE2 : null].filter(Boolean).join(' | ');
     if (allText !== expected) fail('text mismatch: ' + allText);
     if ((allText.match(/pronounced/g) || []).length > 1) fail('pronunciation line more than once');
 

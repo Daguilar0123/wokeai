@@ -1,8 +1,8 @@
 """Check the wokeai LinkedIn files and build 50%-scale contact sheets (October 21, 2026).
 
-    python3 -P design/system/social/linkedin/src/check.py [SHEETS_DIR]
+    python3 -P design/system/social/linkedin/src/check.py [SHEETS_DIR] [--set linkedin|eo14319] [--report REPORT_JSON]
 
-Checks every wokeai-linkedin-* file in the folder above this script against its name
+Checks every wokeai-<set>-* file (design/system/social/linkedin/ or .../eo14319/) against its name
 (slot, size, theme) and design/system/tokens.json:
   PNG  exact size, fully opaque, all four corner pixels equal to the background token
   MP4  h264 yuv420p, 30 fps, 8.0 s, 240 frames; frame 0 decoded back within 2 of the background
@@ -21,12 +21,28 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 HERE = Path(__file__).resolve().parent
-OUT = HERE.parent
 ROOT = HERE.parents[4]
-SHEETS = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(tempfile.mkdtemp(prefix="wokeai-sheets-"))
+# python3 -P check.py [SHEETS_DIR] [--set linkedin|eo14319] [--report FRAMES_DIR/report.json]
+args = sys.argv[1:]
+opt = lambda k, d=None: args[args.index(k) + 1] if k in args else d
+SET = opt("--set", "linkedin")
+REPORT = opt("--report")
+positional = [a for i, a in enumerate(args) if not a.startswith("--") and (i == 0 or not args[i - 1].startswith("--"))]
+OUT = {"linkedin": HERE.parent, "eo14319": HERE.parents[1] / "eo14319"}[SET]
+SHEETS = Path(positional[0]) if positional else Path(tempfile.mkdtemp(prefix="wokeai-sheets-"))
 SHEETS.mkdir(parents=True, exist_ok=True)
 TOKENS = json.loads((ROOT / "design/system/tokens.json").read_text(encoding="utf-8"))
-NAME = re.compile(r"^wokeai-linkedin-(?P<slot>[a-z-]+?)-(?P<w>\d+)x(?P<h>\d+)-(?P<theme>light|dark|accent)\.(?P<ext>png|mp4|gif)$")
+NAME = re.compile(r"^wokeai-" + SET + r"-(?P<slot>[a-z-]+?)-(?P<w>\d+)x(?P<h>\d+)-(?P<theme>light|dark|accent)\.(?P<ext>png|mp4|gif)$")
+# the only text each file may carry, as compose.html renders it (name | line | line); checked against the
+# render report when --report is given
+LINE1 = "pronounced wōk•ē•ī"   # Danny, October 21, 2026
+LINE2 = "A grassroots, open-source community for people using their own AI to push back against systemic oppression."
+EO = "Executive Order 14319, July 23, 2025 | wokeai answers it. wokeainow.com"   # Danny, October 22, 2026
+ALLOWED_TEXT = {
+    "linkedin": {"portrait": f"wokeai | {LINE2}", "company-cover": "wokeai", "*": f"wokeai | {LINE1}"},
+    "eo14319": {"*": f"wokeai | {EO}"},
+}[SET]
+report = json.loads(Path(REPORT).read_text(encoding="utf-8")) if REPORT else {}
 
 
 def hexrgb(h):
@@ -62,14 +78,21 @@ def fail(f, msg):
     failures.append(f"{f}: {msg}")
 
 
-files = sorted(p for p in OUT.iterdir() if p.name.startswith("wokeai-linkedin-"))
+files = sorted(p for p in OUT.iterdir() if p.name.startswith(f"wokeai-{SET}-"))
 for p in files:
     m = NAME.match(p.name)
     if not m:
-        fail(p.name, "name does not follow wokeai-linkedin-<slot>-<w>x<h>-<theme>.<ext>")
+        fail(p.name, f"name does not follow wokeai-{SET}-<slot>-<w>x<h>-<theme>.<ext>")
         continue
     w, h, theme, ext, slot = int(m["w"]), int(m["h"]), m["theme"], m["ext"], m["slot"]
     bg = background(theme)
+    if report:
+        if p.name not in report:
+            fail(p.name, "not in the render report, so its text is unchecked")
+        else:
+            allowed = ALLOWED_TEXT.get(slot, ALLOWED_TEXT["*"])
+            if report[p.name]["text"] != allowed:
+                fail(p.name, f"text {report[p.name]['text']!r} is not the allowed {allowed!r}")
     if ext == "png":
         img = Image.open(p)
         if img.size != (w, h):
