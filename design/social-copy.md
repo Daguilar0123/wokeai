@@ -24,11 +24,11 @@ wokeainow.com · github.com/Daguilar0123/wokeai
 
 ## LinkedIn
 
-**Overview** (2,000-character field; this is 1,977):
+**Overview** (2,000-character field; this is 1,859):
 
 wokeai is a web app under construction. The community and the tool sharing are too. What’s here now is the idea, the brand, and the code.
 
-As a brand, wokeai is about using AI to fundamentally challenge systems of oppression. They come in many forms: white supremacy, patriarchy, heterosexism, imperialism, American hegemony, and more. As a Mexican-American, when I say American hegemony is bad, I say it the way an anti-Zionist Jew says Zionism is bad. Acute systems target specific groups by race, religion, ethnicity, sex, gender identity, nationality, and more. But one system cuts across the most categories, including white supremacy, the biggest of the acute systems.
+As a brand, wokeai is about using AI to fundamentally challenge systems of oppression. They come in many forms: white supremacy, patriarchy, heterosexism, imperialism, American hegemony, and more. Acute systems target specific groups by race, religion, ethnicity, sex, gender identity, nationality, and more. But one system cuts across the most categories, including white supremacy, the biggest of the acute systems.
 
 I am talking about capitalism, and even more so 21st-century, AI-powered, late-stage capitalism. This is what I thought “oligarchy” meant, but I have come to think the word is sometimes used to avoid saying capitalism. Capitalism cuts across all the others because it runs on the exponential drive for profit. A first-century letter in the New Testament put it this way: “For the love of money is the root of all kinds of evil” (1 Timothy 6:10).
 
@@ -36,4 +36,4 @@ Capitalism is a core root of oppression because it quite literally birthed white
 
 Join us. The community space and the tool sharing are not built yet. Right now there is a repository, a list of tools, and each other. Read the covenant. Bring the tools you use. Tell someone who is being crushed right now that there is a place. Join on GitHub: github.com/Daguilar0123/wokeai
 
-*Written October 21, 2026 for the LinkedIn page overview (Company Page and showcase), cut to the field's length from the home page text in `index.html`; Danny asked for 2,000 characters. What differs from the home page: the opening says "wokeai is a web app under construction" instead of "This is the landing page…"; the headings are gone; and the last line carries the repo link where the home page has a "Join on GitHub" button. The pronunciation line is left out because the page's tagline carries it. This copy names its sources on purpose, per Danny's October 19, 2026 home page decision, although the "no sources named" rule at the top of this file predates it. The Mexican-American and anti-Zionist comparison stays as on the home page; whether it belongs on LinkedIn is Danny's open call.*
+*Written October 21, 2026 for the LinkedIn page overview (Company Page and showcase), cut to the field's length from the home page text in `index.html`; Danny asked for 2,000 characters. What differs from the home page: the opening says "wokeai is a web app under construction" instead of "This is the landing page…"; the headings are gone; and the last line carries the repo link where the home page has a "Join on GitHub" button. The pronunciation line is left out because the page's tagline carries it. This copy names its sources on purpose, per Danny's October 19, 2026 home page decision, although the "no sources named" rule at the top of this file predates it. The home page's Mexican-American and anti-Zionist comparison sentence is cut from this version (Danny, October 21, 2026); the home page keeps it.*
