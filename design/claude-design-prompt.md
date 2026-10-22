@@ -10,7 +10,7 @@ Attach `design/wokeai-design-system-upload.zip` (or its contents). It holds the 
 
 Use the attached wokeai design system as given. Read `README.md` first; `tokens.json` is the only source of color, type, spacing, and radius; the marks in `marks/` are final geometry and are not to be redrawn. Everything below is built from that system, with no new colors, no new typeface, and nothing added to the marks.
 
-What wokeai is: a grassroots, open-source community for people using their own AI to push back against systemic oppression, starting as a website (wokeainow.com) and social profiles with no budget. Three pillars: open source, liberation, community. The brand is **wokeai**, one word, always lowercase. Under the wordmark: **pronounced wohk/ē/eye**. The secondary wordmark is **wōke•ĀĪ**. The future podcast is **wahkeeye**, tagline "pronounced wōke•ĀĪ", using the Heard mark.
+What wokeai is: a grassroots, open-source community for people using their own AI to push back against systemic oppression, starting as a website (wokeainow.com) and social profiles with no budget. Three pillars: open source, liberation, community. The brand is **wokeai**, one word, always lowercase. Under the wordmark: **pronounced wōk•ē•ī**. The secondary wordmark is **wōke•ĀĪ**. The future podcast is **wahkeeye**, tagline "pronounced wōke•ĀĪ", using the Heard mark.
 
 Build, in this order:
 

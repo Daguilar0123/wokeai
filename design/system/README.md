@@ -6,18 +6,18 @@ Version 2, October 18, 2026. Supersedes the October 18 upload (version 1). Danny
 
 ## Intro
 
-wokeai (pronounced wohk/ē/eye). A grassroots, open-source community for people using their own AI to push back against systemic oppression. Open tools, shared in common. Starting small. wokeainow.com
+wokeai (pronounced wōk•ē•ī). A grassroots, open-source community for people using their own AI to push back against systemic oppression. Open tools, shared in common. Starting small. wokeainow.com
 
 ## The name
 
 - **wokeai**: one word, always lowercase, even at the start of a sentence. Never *Wokeai*, never *woke AI* when you mean the brand, never *wokeainow* (that is only the domain).
-- **Pronunciation line**: `pronounced wohk/ē/eye`, set in `caption`, `muted`, under the wordmark wherever there is room for a second line. State it once per surface.
+- **Pronunciation line**: `pronounced wōk•ē•ī`, set in `caption`, `muted`, under the wordmark wherever there is room for a second line. State it once per surface.
 - **Secondary wordmark**: `wōke•ĀĪ`, set in `wordmark-secondary`. Use it on social headers, merch, the home page's "The name" block, and in the podcast tagline. Check that Ā, Ī, ō, and • render in Archivo before shipping.
 - **Podcast** (future): **wahkeeye**, tagline `pronounced wōke•ĀĪ`, with the Heard mark.
 
 ## Site copy (verbatim)
 
-> wokeai is one word, always lowercase, and it’s said wohk/ē/eye. The spelling says one thing to a glance. We’ll tell you how it’s said.
+> wokeai is one word, always lowercase, and it’s said wōk•ē•ī. The spelling says one thing to a glance. We’ll tell you how it’s said.
 >
 > We’re a grassroots community for people who use their own AI to push back against systemic oppression: students, independent researchers, organizers, and builders. Not a product. A place to gather, a list of open tools that already exist, and the people who want to build the next ones.
 >

@@ -18,7 +18,7 @@ Build a design system for **wokeai**, a grassroots, open-source community hub fo
 
 - Brand: **wokeai**. One word, always lowercase, even at the start of a sentence. Never "Wokeai", never "woke AI", never "wokeainow".
 - Website: wokeainow.com.
-- Pronunciation line, set under the wordmark: **pronounced wohk/ē/eye**. The spelling says one thing to a glance; the line tells you how it's actually said. That gap is the brand's one joke and its whole posture: subversive, not hiding, proud.
+- Pronunciation line, set under the wordmark: **pronounced wōk•ē•ī**. The spelling says one thing to a glance; the line tells you how it's actually said. That gap is the brand's one joke and its whole posture: subversive, not hiding, proud.
 - Secondary wordmark: **wōke•ĀĪ** (interpunct, macrons). It is the pronunciation line turned into type, meant to look like a dictionary entry. Use it on social headers, merch, and the podcast lockup. It must be set in the same typeface as the main wordmark, so that face must have real macron glyphs (Ā, Ī, ō) and a proper interpunct.
 - Podcast (future): **wahkeeye**, tagline "pronounced wōke•ĀĪ", with mark B.
 
