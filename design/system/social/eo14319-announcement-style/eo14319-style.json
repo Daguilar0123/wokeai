@@ -1,0 +1,46 @@
+{
+  "name": "eo14319-announcement-style",
+  "source": "https://www.whitehouse.gov/presidential-actions/2025/07/preventing-woke-ai-in-the-federal-government/",
+  "read": "2026-10-22",
+  "note": "Read on October 22, 2026 by Claude (Opus 5.5) in the Claude desktop app's built-in browser pane, from computed styles via read-only JavaScript, at a 1024×768 viewport, device pixel ratio 2. Sizes are fluid on that page, so the px values are the ones at that viewport. Only type, color and spacing were taken. The page header's seal and the small arrow icon in the eyebrow were not downloaded, copied or traced, and nothing else from the page (emblem, flag, photograph, logo) was used.",
+  "layout": {
+    "header": "A full-width navy band ('topper'), all content centered. Top to bottom: the seal (not used); the eyebrow 'PRESIDENTIAL ACTIONS', a padded label with an arrow icon before it (the icon is not used); the h1; then a meta row, 'Executive Orders' and 'July 23, 2025' side by side, split by a 1px rule at white 40%.",
+    "afterHeader": "A white page. 'EXECUTIVE ORDER 14319' in its own centered line in Nord bold uppercase, then the order's text, left-aligned, in a 782px measure.",
+    "rules": "No horizontal rules (hr) on the page. The only rule line is the 1px vertical divider in the meta row.",
+    "dateRelativeToTitle": "The date sits below the headline, in the meta row, to the right of the category 'Executive Orders'."
+  },
+  "color": {
+    "headerGradient": "linear-gradient(0deg, #0d132d 24.28%, #0b1b33 100%)",
+    "headerBase": "#0d132d",
+    "textOnHeader": "#ffffff",
+    "metaDivider": "rgba(255, 255, 255, 0.4)",
+    "pageBackground": "#ffffff",
+    "text": "#293340"
+  },
+  "type": {
+    "headline": { "element": "h1", "fontFamily": "Instrument Serif", "fontWeight": 400, "fontSize": "55.008px", "lineHeight": "59.4086px (1.08)", "letterSpacing": "1.2px (0.0218em)", "textTransform": "none (the source text is already in capitals)", "color": "#ffffff", "textAlign": "center", "measure": "947px box, set on 2 lines, about 22 characters per line" },
+    "eyebrow": { "text": "PRESIDENTIAL ACTIONS", "fontFamily": "Instrument Sans", "fontWeight": 600, "fontSize": "14px", "lineHeight": "16.52px (1.18)", "letterSpacing": "0.84px (0.06em)", "textTransform": "uppercase", "color": "#ffffff", "padding": "4.9px 16.8px", "background": "none", "border": "none" },
+    "meta": { "text": "Executive Orders │ July 23, 2025", "fontFamily": "Instrument Sans", "fontWeight": 400, "fontSize": "14px", "lineHeight": "22.4px (1.6)", "letterSpacing": "normal", "textTransform": "none", "color": "#ffffff", "itemPadding": "0 20px" },
+    "eoNumber": { "text": "EXECUTIVE ORDER 14319", "fontFamily": "Nord", "fontWeight": 700, "fontSize": "17.168px", "lineHeight": "27.4688px", "letterSpacing": "0.2px", "textTransform": "uppercase", "color": "#293340", "textAlign": "center" },
+    "body": { "fontFamily": "Instrument Sans", "fontWeight": 400, "fontSize": "17.168px", "lineHeight": "27.4688px (1.6)", "letterSpacing": "0.2px (0.01165em)", "textTransform": "none", "color": "#293340", "textAlign": "start", "measure": "782px" }
+  },
+  "spacing": {
+    "headerPadding": "64px 30.848px 48px",
+    "sealToEyebrow": "20px (seal margin-bottom)",
+    "eyebrowToHeadline": "16px (h1 margin-top), plus the eyebrow's 4.9px bottom padding",
+    "headlineToMeta": "40px (meta row margin-top)",
+    "headerToEoNumber": "about 72px",
+    "eoNumberToBody": "25.84px",
+    "betweenParagraphs": "25.84px (1.505em of body size)"
+  },
+  "fonts": {
+    "Instrument Serif": { "onPage": "self-hosted by the page", "free": "Google Fonts, SIL Open Font License", "inGraphic": "used as named, from Google Fonts" },
+    "Instrument Sans": { "onPage": "self-hosted static cuts 400, 500, 600, 700", "free": "Google Fonts, SIL Open Font License", "inGraphic": "used as named, from Google Fonts (the variable version, weights 400 and 600)" },
+    "Nord": { "onPage": "self-hosted, used only for the EO number line", "free": "not on Google Fonts (fonts.googleapis.com css2 answered 400 for 'Nord' on 2026-10-22) and not a system font", "inGraphic": "not used; the graphic has no element in this style, so no substitute was needed" }
+  },
+  "usedInGraphic": {
+    "header": "headerGradient, textOnHeader, the eyebrow style (with the graphic's own eyebrow text), and the headline style, uppercase as on the page",
+    "body": "pageBackground, text, and the body style, with the paragraph gap as a ratio of the size",
+    "notUsed": "the seal, the eyebrow icon, the meta row, the EO number line in Nord"
+  }
+}
