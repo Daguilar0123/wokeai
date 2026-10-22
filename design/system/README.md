@@ -131,6 +131,8 @@ Semantic states (success, warning, error) are not defined yet. Add them as token
 6. Join: one paragraph and one primary button
 7. Footer: wokeainow.com · github.com/Daguilar0123/wokeai
 
+**As built on the live site, October 22, 2026** (supersedes the list above, which is the October 18 design; the page is the source of truth): header lockup with the mark looping; the under-construction notice band; Latest post (a Bluesky post as text and link, embed only after a click); What this is (one-line lede, a paragraph, the subhead "The system that cuts across the others", two paragraphs); What it answers (Executive Order 14319, three paragraphs); Three things hold it up; What the app will be (four paragraphs and the covenant note); Open tools you can use today; The name; Join (one paragraph, the coffee link); footer: wokeainow.com only.
+
 ## Components (live source)
 
 - `wokeai Mark.dc.html`: the mark renderer. Props:
