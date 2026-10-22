@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>EO 14319 graphic</title>
+<!--
+  EO 14319 social graphic (October 22, 2026). Open through capture-server.mjs:
+    http://127.0.0.1:4319/design/system/social/eo14319-announcement-style/eo14319-announcement.html?size=1080x1080
+  sizes: 1080x1080, 1200x627. Add &save=1 to draw the stage onto a canvas at scale 1 and POST the PNG
+  to the receiver. Checks run first (fonts, mark hash, approved text, one line per phrase, nothing
+  outside the frame); any failure blocks the save and shows in the title and #report.
+  The header and body take type, color and spacing from eo14319-style.json (the White House page);
+  the band at the bottom takes them from design/system/tokens.json (wokeai, light theme).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..800&family=Instrument+Sans:wght@400..700&family=Instrument+Serif&display=block">
+<style id="css">
+  /* announcement page (eo14319-style.json) */
+  #stage { --navy-top: #0b1b33; --navy-bottom: #0d132d; --page-bg: #ffffff; --page-text: #293340; --on-navy: #ffffff;
+    /* wokeai band (tokens.json, light) */
+    --wk-surface: #f6f4ef; --wk-rule: #d9d5cc; --wk-ink: #141414; --wk-accent: #1f6f4a;
+    position: relative; overflow: hidden; width: var(--w); height: var(--h); margin: 0;
+    display: flex; flex-direction: column; background: var(--page-bg); }
+  #stage p, #stage h1 { margin: 0; }
+  .topper { flex: none; text-align: center; color: var(--on-navy);
+    background: linear-gradient(0deg, var(--navy-bottom) 24.28%, var(--navy-top) 100%);
+    padding: var(--pad-top) var(--gutter) var(--pad-bottom); }
+  .eyebrow { display: inline-block; padding: 0.35em 0; font: 600 var(--eyebrow)/1.18 "Instrument Sans", sans-serif;
+    letter-spacing: 0.06em; text-transform: uppercase; }
+  #stage .headline { margin-top: var(--h1-gap); font: 400 var(--h1)/1.08 "Instrument Serif", serif;
+    letter-spacing: 0.0218em; text-transform: uppercase; text-wrap: balance; }
+  .body { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 var(--gutter); }
+  .phrases { align-self: center; width: var(--block); }
+  #stage .phrase { margin-top: var(--phrase-gap); font: 400 var(--phrase)/1.6 "Instrument Sans", sans-serif;
+    letter-spacing: 0.01165em; color: var(--page-text); }
+  #stage .phrase:first-child { margin-top: 0; }
+  .band { flex: none; box-sizing: border-box; height: var(--band); display: flex; align-items: center; gap: var(--mark-gap);
+    padding: 0 var(--gutter); background: var(--wk-surface); border-top: 2px solid var(--wk-rule);
+    font-family: "Archivo", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: var(--wk-ink); }
+  .mark { flex: none; display: block; width: var(--mark); height: var(--mark); }
+  .band-line { display: flex; align-items: baseline; gap: 0.75em; }
+  .wordmark { font-size: var(--wordmark); font-weight: 750; letter-spacing: -0.03em; line-height: 1; }
+  .url { font-size: var(--small); font-weight: 400; line-height: 1.4; color: var(--wk-accent); }
+  #stage .note { margin-top: var(--note-gap); font-size: var(--small); font-weight: 400; line-height: 1.4; }
+</style>
+<style>
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  #report { margin: 0; padding: 8px; font: 12px/1.4 ui-monospace, Menlo, monospace; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <header class="topper">
+    <p class="eyebrow">Executive Order 14319 · July 23, 2025</p>
+    <h1 class="headline">Preventing Woke AI in the Federal Government</h1>
+  </header>
+  <section class="body">
+    <div class="phrases">
+      <p class="phrase">Tells federal agencies which AI models they may buy</p>
+      <p class="phrase">Requires “Truth-seeking” and “Ideological Neutrality”</p>
+      <p class="phrase">Lists “systemic racism” in what it says DEI includes</p>
+    </div>
+  </section>
+  <footer class="band">
+    <img class="mark" src="/marks/roots-official-light.svg" alt="">
+    <div>
+      <p class="band-line"><span class="wordmark">wokeai</span><span class="url">wokeainow.com</span></p>
+      <p class="note">Commentary from wokeai, not a government document.</p>
+    </div>
+  </footer>
+</div>
+<pre id="report">checking…</pre>
+<script>
+const APPROVED = {
+  eyebrow: 'Executive Order 14319 · July 23, 2025',
+  title: 'Preventing Woke AI in the Federal Government',
+  // Sec. 3 (procure only LLMs built to the two principles), Sec. 3 (the principles' names, page casing),
+  // Sec. 1 ("In the AI context, DEI includes… systemic racism")
+  phrases: [
+    'Tells federal agencies which AI models they may buy',
+    'Requires “Truth-seeking” and “Ideological Neutrality”',
+    'Lists “systemic racism” in what it says DEI includes',
+  ],
+  quotes: ['Truth-seeking', 'Ideological Neutrality', 'systemic racism'],
+  band: ['wokeai', 'wokeainow.com', 'Commentary from wokeai, not a government document.'],
+};
+// marks/roots-official-light.svg, byte for byte (shasum -a 256, October 22, 2026)
+const MARK = { src: '/marks/roots-official-light.svg', sha256: '065db6c431d11ab8a61038b4821e4b51ac0f7984d3586c656d39207a898ac8ce' };
+const FONTS_CSS = document.querySelector('link[rel=stylesheet]').href;
+// px; scaled from the page's ratios (eyebrow→h1 0.29×h1, line-heights, letter-spacing) to each frame
+const SIZES = {
+  '1080x1080': { w: 1080, h: 1080, gutter: 84, padTop: 92, padBottom: 72, eyebrow: 24, h1: [88, 70], phrase: [36, 30],
+    phraseGap: 1.5, band: 196, mark: 150, markGap: 26, wordmark: 50, small: 25, noteGap: 10 },
+  '1200x627': { w: 1200, h: 627, gutter: 64, padTop: 38, padBottom: 32, eyebrow: 20, h1: [58, 48], phrase: [28, 24],
+    phraseGap: 1.05, band: 128, mark: 92, markGap: 22, wordmark: 36, small: 22, noteGap: 6 },
+};
+const q = new URLSearchParams(location.search);
+const name = q.get('size') || '1080x1080';
+const S = SIZES[name];
+const stage = document.getElementById('stage');
+const $ = (s) => stage.querySelector(s);
+const $$ = (s) => [...stage.querySelectorAll(s)];
+const set = (k, v) => stage.style.setProperty('--' + k, typeof v === 'number' ? v + 'px' : v);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const b64 = (buf) => { const u = new Uint8Array(buf); let s = ''; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
+const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+
+function layout() {
+  for (const k of ['w', 'h', 'gutter', 'eyebrow', 'band', 'mark', 'wordmark', 'small']) set(k, S[k]);
+  set('pad-top', S.padTop); set('pad-bottom', S.padBottom); set('mark-gap', S.markGap); set('note-gap', S.noteGap);
+  const measure = S.w - 2 * S.gutter;
+  // headline: largest size that balances into at most two lines
+  const h1 = $('.headline'); let h1px = S.h1[0];
+  for (; h1px >= S.h1[1]; h1px--) {
+    set('h1', h1px); set('h1-gap', Math.round(0.29 * h1px));
+    if (h1.getBoundingClientRect().height <= 2 * h1px * 1.08 + 1) break;
+  }
+  // phrases: largest size at which the longest one fits the measure on one line
+  const probe = document.createElement('span'); probe.style.whiteSpace = 'nowrap';
+  let ph = S.phrase[0], widest = 0;
+  for (; ph >= S.phrase[1]; ph--) {
+    set('phrase', ph); set('phrase-gap', (S.phraseGap * ph).toFixed(2) + 'px');
+    widest = Math.max(...$$('.phrase').map((p) => { probe.textContent = p.textContent; p.append(probe);
+      const wd = probe.getBoundingClientRect().width; probe.remove(); return wd; }));
+    if (widest <= measure) break;
+  }
+  set('block', Math.ceil(widest) + 2);
+  return { h1px, phrasePx: ph, widest: Math.round(widest), measure };
+}
+
+async function check(sizes) {
+  const fails = [];
+  const fontLoads = [
+    ['600 ' + S.eyebrow + 'px "Instrument Sans"', APPROVED.eyebrow],
+    ['400 ' + sizes.h1px + 'px "Instrument Serif"', APPROVED.title.toUpperCase()],
+    ['400 ' + sizes.phrasePx + 'px "Instrument Sans"', APPROVED.phrases.join('')],
+    ['750 ' + S.wordmark + 'px "Archivo"', 'wokeai'],
+    ['400 ' + S.small + 'px "Archivo"', APPROVED.band.slice(1).join('')],
+  ];
+  const fonts = {};
+  for (const [f, text] of fontLoads) {
+    const got = await document.fonts.load(f, text);
+    fonts[f] = got.length ? got.map((x) => x.family + ' ' + x.weight).join(', ') : 'NOT LOADED';
+    if (!got.length) fails.push('font not loaded: ' + f);
+  }
+  const markBuf = await (await fetch(MARK.src, { cache: 'no-store' })).arrayBuffer();
+  const markSha = hex(await crypto.subtle.digest('SHA-256', markBuf));
+  if (markSha !== MARK.sha256) fails.push('mark bytes differ from roots-official-light.svg');
+  if ($('.mark').getAttribute('src') !== MARK.src) fails.push('mark src changed');
+  const text = (s) => $(s).textContent.trim();
+  if (text('.eyebrow') !== APPROVED.eyebrow) fails.push('eyebrow text');
+  if (text('.headline') !== APPROVED.title) fails.push('title text');
+  const phrases = $$('.phrase').map((p, i) => {
+    const t = p.textContent.trim(), lh = parseFloat(getComputedStyle(p).lineHeight);
+    const oneLine = p.getBoundingClientRect().height < lh * 1.5;
+    if (t !== APPROVED.phrases[i]) fails.push('phrase ' + (i + 1) + ' text');
+    if (t.length >= 60) fails.push('phrase ' + (i + 1) + ' is ' + t.length + ' characters');
+    if (!oneLine) fails.push('phrase ' + (i + 1) + ' wraps');
+    return { text: t, chars: t.length, oneLine };
+  });
+  const quotes = phrases.flatMap((p) => [...p.text.matchAll(/“([^”]+)”/g)].map((m) => m[1]));
+  if (JSON.stringify(quotes) !== JSON.stringify(APPROVED.quotes)) fails.push('quoted words: ' + quotes.join(' | '));
+  const band = [text('.wordmark'), text('.url'), text('.note')];
+  if (JSON.stringify(band) !== JSON.stringify(APPROVED.band)) fails.push('band text');
+  const frame = stage.getBoundingClientRect();
+  const outside = [...stage.querySelectorAll('*')].filter((e) => { const r = e.getBoundingClientRect();
+    return r.left < frame.left - 0.5 || r.top < frame.top - 0.5 || r.right > frame.right + 0.5 || r.bottom > frame.bottom + 0.5; })
+    .map((e) => e.className || e.tagName);
+  if (outside.length) fails.push('outside the frame: ' + outside.join(', '));
+  const body = $('.body').getBoundingClientRect(), block = $('.phrases').getBoundingClientRect();
+  if (block.top < body.top || block.bottom > body.bottom) fails.push('phrases overflow the body');
+  const bandBox = $('.band').getBoundingClientRect();
+  if (Math.abs(bandBox.bottom - frame.bottom) > 0.5 || bandBox.height < S.band - 0.5) fails.push('band not fully in frame');
+  const imgs = [...stage.querySelectorAll('img, svg, picture, video, canvas, object, iframe')].map((e) => e.getAttribute('src') || e.tagName);
+  if (imgs.length !== 1) fails.push('images other than the mark: ' + imgs.join(', '));
+  return { size: name, sizes, fonts, markSha, phrases, quotes, band, bandHeight: Math.round(bandBox.height),
+    topperHeight: Math.round($('.topper').getBoundingClientRect().height), bodyRoom: Math.round(body.height - block.height), fails };
+}
+
+async function capture(markBuf) {
+  // fonts: the latin faces of the same Google Fonts stylesheet, inlined; the SVG image cannot fetch
+  const css = await (await fetch(FONTS_CSS)).text();
+  let fontCss = '';
+  for (const block of css.split(/(?=\/\* [\w-]+ \*\/)/).filter((b) => b.startsWith('/* latin */'))) {
+    const url = block.match(/url\((https:[^)]+)\)/)[1];
+    fontCss += block.replace(url, 'data:font/woff2;base64,' + b64(await (await fetch(url)).arrayBuffer()));
+  }
+  const clone = stage.cloneNode(true);
+  clone.querySelector('.mark').setAttribute('src', 'data:image/svg+xml;base64,' + b64(markBuf));
+  const style = (fontCss + document.getElementById('css').textContent).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${S.w}" height="${S.h}"><foreignObject x="0" y="0" width="${S.w}" height="${S.h}">`
+    + `<div xmlns="http://www.w3.org/1999/xhtml"><style>${style}</style>${new XMLSerializer().serializeToString(clone)}</div></foreignObject></svg>`;
+  const img = new Image();
+  // a data: URL, not a blob: URL; Chrome taints the canvas for a blob: SVG with foreignObject
+  img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  await img.decode(); await sleep(500);
+  const canvas = document.createElement('canvas'); canvas.width = S.w; canvas.height = S.h;
+  canvas.getContext('2d').drawImage(img, 0, 0, S.w, S.h);
+  const png = await new Promise((r) => canvas.toBlob(r, 'image/png'));
+  const file = `eo14319-announcement-${name}.png`;
+  const res = await fetch('/save/' + file, { method: 'POST', body: png });
+  if (!res.ok) throw new Error('receiver: ' + res.status + ' ' + await res.text());
+  return { file, bytes: png.size };
+}
+
+(async () => {
+  const out = document.getElementById('report');
+  try {
+    if (!S) throw new Error('unknown size ' + name);
+    // fonts load only when first used; load them before measuring, or the fit runs on fallback metrics
+    await Promise.all([['600', 'Instrument Sans', APPROVED.eyebrow.toUpperCase()], ['400', 'Instrument Serif', APPROVED.title.toUpperCase()],
+      ['400', 'Instrument Sans', APPROVED.phrases.join('')], ['750', 'Archivo', 'wokeai'], ['400', 'Archivo', APPROVED.band.join('')]]
+      .map(([wt, fam, text]) => document.fonts.load(`${wt} 24px "${fam}"`, text)));
+    await document.fonts.ready;
+    const sizes = layout();
+    await document.fonts.ready;
+    const report = await check(sizes);
+    window.__report = report;
+    if (report.fails.length) { document.title = 'failed: ' + report.fails.join('; '); out.textContent = JSON.stringify(report, null, 2); return; }
+    if (q.get('save') === '1') {
+      const markBuf = await (await fetch(MARK.src, { cache: 'no-store' })).arrayBuffer();
+      report.saved = await capture(markBuf);
+      document.title = `saved ${report.saved.file} ${report.saved.bytes}`;
+    } else document.title = 'ok ' + name;
+    out.textContent = JSON.stringify(report, null, 2);
+  } catch (e) {
+    document.title = 'failed: ' + e.message; out.textContent = String(e.stack || e);
+  }
+})();
+</script>
+</body>
+</html>
