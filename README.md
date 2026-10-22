@@ -58,6 +58,10 @@ Design system **version 2**, October 18, 2026 (supersedes version 1 of the same 
 
 There is no budget. If you want to put a few dollars toward hosting the next pieces, the founder's Buy Me a Coffee is [buymeacoffee.com/danny.thetatteredrose](https://buymeacoffee.com/danny.thetatteredrose); the repo's Sponsor button goes to the same place (`.github/FUNDING.yml`). The site links to it with a plain link, not their widget, so nothing third-party loads on the page.
 
+**Override withdrawn (Danny, October 20, 2026):** I briefly overrode the no-third-party rule above to embed a live Bluesky post, then took it back: "yes, honor that first rule." The homepage's "Latest post" section (`index.html`) shows the post as plain text with a link to bsky.app, and loads no Bluesky script or iframe. The rule stands as written.
+
+**Refinement (Danny, October 20, 2026):** the same day, I chose to offer the live post after a click. Nothing third-party loads when the page loads, and the page sets no cookies. The "Latest post" section shows the post as plain text and a link, plus a "Load the post from Bluesky" button (shown only when JavaScript runs). Only after a visitor clicks it does Bluesky's `embed.js` and an iframe from `embed.bsky.app` load, which sends that visitor's IP address and the page address to Bluesky. I have not written a cookie policy yet; this keeps the default state clean until I do.
+
 ## License and brand
 
 - **Code** (the site, `index.html`, `preview.html`, and anything else that runs) is licensed under the [GNU Affero General Public License v3.0](LICENSE). Use it, change it, share it; if you run a changed version for other people, hosted or installed, offer them your source.

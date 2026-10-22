@@ -95,3 +95,7 @@ Same values on every platform. Files are in `marks/png/`, exported from `marks/r
 | Reddit | | | | | |
 
 When done: commit this file with the table filled in, add the live profile links to `index.html`'s Join section (plain links, no embeds or widgets) only after Danny lifts the under-construction hold: no links go on the page until then (October 21, 2026), and add the Mastodon `rel="me"` link. Commit messages record what was claimed and where the codes go.
+
+**Override withdrawn (Danny, October 20, 2026):** the brief override of the plain-links-only instruction above is withdrawn. The Bluesky post on the homepage is plain text with a link to bsky.app, with no embed script or iframe. The instruction above stands. See the matching note in `README.md`.
+
+**Refinement (Danny, October 20, 2026):** the Bluesky post on the homepage loads Bluesky's embed only after a visitor clicks "Load the post from Bluesky"; nothing loads with the page. Profile links stay plain links. See the matching note in `README.md`.
