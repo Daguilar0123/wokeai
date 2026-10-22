@@ -2,7 +2,7 @@
 
 Our code of conduct lives in **the wokeai covenant**, in the section "How we treat each other":
 
-- On the site: https://wokeainow.com/covenant.html
+- On the site: https://wokeainow.com/covenant.html (a draft; not linked from the site as of October 21, 2026, by Danny's decision, but the "How we treat each other" section is in force)
 - In this repository: [`covenant.html`](covenant.html)
 
 That section is in force now, even while the rest of the covenant is a working draft. It is adapted from the [Contributor Covenant, version 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) (CC BY 4.0), rewritten in the community's own voice and widened to name power, surveillance, and extraction as conduct problems. It is not the Contributor Covenant; it is ours.

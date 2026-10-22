@@ -94,4 +94,4 @@ Same values on every platform. Files are in `marks/png/`, exported from `marks/r
 | Facebook | | | | | |
 | Reddit | | | | | |
 
-When done: commit this file with the table filled in, add the live profile links to `index.html`'s Join section (plain links, no embeds or widgets), and add the Mastodon `rel="me"` link. Commit messages record what was claimed and where the codes go.
+When done: commit this file with the table filled in, add the live profile links to `index.html`'s Join section (plain links, no embeds or widgets) only after Danny lifts the under-construction hold: no links go on the page until then (October 21, 2026), and add the Mastodon `rel="me"` link. Commit messages record what was claimed and where the codes go.
