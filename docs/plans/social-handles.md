@@ -22,7 +22,7 @@ Written October 18, 2026. Danny tried X already and isn't sure it took. The site
 Do the first tier in one sitting; the rest as Danny has energy. For each: check availability of `wokeai` → create → set avatar, banner, bio, link → verify the public URL loads logged-out → log it in the table below.
 
 1. **X / Twitter** — first, because the earlier attempt is unresolved. Check x.com/wokeai and x.com/wokeainow logged-out. If Danny's attempt created an account, recover it (he may have an email from X in danny@grownfromconcrete.org); if not, create it.
-2. **Bluesky** — handle `wokeai.bsky.social`, then set the custom handle to `wokeainow.com` by adding the DNS TXT record Bluesky gives (`_atproto` → `did=...`) at GoDaddy. That makes the handle the domain itself, which is on-brand. The agent prepares the record; Danny pastes it.
+2. **Bluesky** — handle `wokeai.bsky.social`, then set the custom handle to `wokeainow.app` (Danny, October 20, 2026; this plan first said `wokeainow.com`) by adding the DNS TXT record Bluesky gives (`_atproto` → `did=...`) at GoDaddy. That makes the handle the domain itself, which is on-brand. The agent prepares the record; Danny pastes it. Done: see the record table.
 3. **Mastodon** — pick an instance (ask Danny; a tech/activism instance fits better than mastodon.social). Add `rel="me"` verification by putting the profile link in the site footer, so the profile shows a verified link to wokeainow.com.
 4. **Instagram** — `wokeai`; link in bio; square avatar; the GIF won't play, use the static frame.
 5. **Threads** — comes with the Instagram account; same handle.
@@ -59,6 +59,8 @@ Do the first tier in one sitting; the rest as Danny has energy. For each: check 
 
 **Respelled October 21, 2026 (Danny):** the pronunciation line is now `wōk•ē•ī`, and the bios and counts below use it. A profile that was already given the old `wohk/ē/eye` bio needs it pasted again.
 
+**Live bios (checked October 27, 2026):** the X, Bluesky and LinkedIn profiles carry Danny's own text, not this sheet's; the record below quotes each.
+
 Same values on every platform. Files are in `marks/png/`, exported from `marks/roots-official-light.svg` and `marks/og.png` with Quick Look and Pillow, never redrawn, flattened onto `surface` `#f6f4ef` so circle crops never show black.
 
 - **Handle:** `wokeai` where free (Mastodon, maybe Reddit), otherwise `wokeainow` (Danny's decision, October 18, 2026)
@@ -75,7 +77,7 @@ Same values on every platform. Files are in `marks/png/`, exported from `marks/r
 - **Facebook cover and LinkedIn cover:** export when those pages are made; they want other ratios
 - **About (Facebook, LinkedIn, YouTube description):** the About text in `design/social-copy.md`
 
-**Bluesky custom handle, after the account exists:** Settings → Account → Handle → "I have my own domain" → enter `wokeainow.com` → Bluesky shows a TXT record. At GoDaddy, DNS for wokeainow.com, add: type TXT, name `_atproto`, value `did=did:plc:…` exactly as shown, default TTL. The site's A and CNAME records for GitHub Pages are untouched by this. Back in Bluesky, "Verify DNS record". The profile URL becomes `bsky.app/profile/wokeainow.com`.
+**Bluesky custom handle, after the account exists:** Settings → Account → Handle → "I have my own domain" → enter `wokeainow.app` → Bluesky shows a TXT record. At GoDaddy, DNS for wokeainow.app, add: type TXT, name `_atproto`, value `did=did:plc:…` exactly as shown, default TTL. The site's records (GitHub Pages on the .com, forwarding on the .app) are untouched by this. Back in Bluesky, "Verify DNS record". The profile URL becomes `bsky.app/profile/wokeainow.app`. **Changed October 20, 2026 (Danny):** "ok. good job. but i change my mind. i want bsky set to wokeainow.app". These steps were first done for wokeainow.com; that record stays live and points at the same account, which does no harm. Checked October 27, 2026: both `_atproto` records hold `did=did:plc:h5udrydfvu42oxejhqe5piqc`, and the handle is `wokeainow.app`.
 
 **Mastodon verification, after the account exists:** add to the footer of `index.html` a link with `rel="me"` to the profile, for example `<a rel="me" href="https://INSTANCE/@wokeainow">Mastodon</a>`, push, then in Mastodon put `https://wokeainow.com` in a profile metadata field; Mastodon fetches the page and marks the link verified.
 
@@ -83,14 +85,14 @@ Same values on every platform. Files are in `marks/png/`, exported from `marks/r
 
 | Platform | Handle claimed | Public URL | Email used | 2FA method | Status / notes |
 |---|---|---|---|---|---|
-| X | `wokeainow` | https://x.com/wokeainow | not `accounts@`: this is an older account (joined February 2025) that Danny renamed; email on file to be confirmed and moved to `accounts@wokeainow.com` once it works | to be recorded | Claimed October 19, 2026 by renaming an existing account. Danny's attempts to create a new handle stalled on his Mac mini and iPhone; logging in by phone showed two accounts on his number, `badfaithprosecu` and one with a default `danielaguilar`-plus-digits username that was never customized, and he changed that one to `wokeainow`. Verified logged out the same day: the page loads, 0 followers, avatar and header are set. Still to fix: display name reads "Daniel" (must be `wokeai`), no bio or website shown. The account shares a phone number with `badfaithprosecu`, so X may suggest the two to each other. |
-| Bluesky | | | | | |
+| X | `wokeainow` | https://x.com/wokeainow | not `accounts@`: this is an older account (joined February 2025) that Danny renamed; email on file to be confirmed and moved to `accounts@wokeainow.com` once it works | to be recorded | Claimed October 19, 2026 by renaming an existing account. Danny's attempts to create a new handle stalled on his Mac mini and iPhone; logging in by phone showed two accounts on his number, `badfaithprosecu` and one with a default `danielaguilar`-plus-digits username that was never customized, and he changed that one to `wokeainow`. Verified logged out the same day: the page loads, 0 followers, avatar and header are set. ~~Still to fix: display name reads "Daniel" (must be `wokeai`), no bio or website shown.~~ **Checked logged out October 27, 2026:** display name `wokeai`; bio "…is about using AI to fundamentally challenge systems of oppression." (Danny's own text, not the paste sheet's, with no pronunciation line); location "The West"; website wokeainow.com; 4 followers, 4 posts; no pinned post shows logged out. The account shares a phone number with `badfaithprosecu`, so X may suggest the two to each other. |
+| Bluesky | `wokeainow.app` | https://bsky.app/profile/wokeainow.app | `accounts@wokeainow.com` | to be recorded | Created October 19, 2026 (about 8:22 pm Eastern), after the test mail to accounts@ landed. Custom handle `wokeainow.app` at Danny's word on October 20, 2026 (this plan had said `wokeainow.com`; see the custom-handle note above). **Checked logged out October 27, 2026** through Bluesky's public API: display name `wokeai (⛔️pronounce "wōk•ĀĪ)`; bio, Danny's own 250 characters: "pronounced wōk•ē•ī or wohk•ē•eye Grassroots, open-source community and upcoming web app putting AI in marginalized hands to challenge capitalism, white supremacy, patriarchy, and imperialism. One-person transitional living worker co-op. wokeainow.app"; avatar and banner set; 65 followers, 44 posts; a thread from October 26, 2026 is pinned. |
 | Mastodon | | | | | |
 | Instagram | | | | | |
 | Threads | | | | | |
 | TikTok | | | | | |
 | YouTube | | | | | |
-| LinkedIn | not recorded | not recorded | not recorded | not recorded | Created by Danny on October 21, 2026 as a subpage of his Danny's Digital Designs company page, "for now" (his words), rather than the standalone Page planned above. Tagline as he set it: `It's pronounced wōk•ē•ī not Wōke•ĀĪ`. Handle, URL, and admin details not yet recorded here. |
+| LinkedIn | `wokeainow` (showcase page) | https://www.linkedin.com/showcase/wokeainow/ | not recorded | not recorded | Created by Danny on October 21, 2026 as a subpage of his Danny's Digital Designs company page, "for now" (his words), rather than the standalone Page planned above. Tagline as he first set it: `It's pronounced wōk•ē•ī not Wōke•ĀĪ`. **Checked logged out October 27, 2026:** linkedin.com/company/wokeainow redirects to the showcase URL; tagline now `pronounced wōk•ē•ī not Wōke•ĀĪ🙅🏻 Emerging grassroots open•source comm•unity using ai to challenge oppressive systems`; website https://wokeainow.app; industry Artificial Intelligence; New York, New York; 13 followers; the Overview is the October 27 text in `design/social-copy.md`. Admin details not yet recorded. A different organization, "WokeAI" (wokeAI.org, New York), holds linkedin.com/company/wokeai. |
 | Facebook | | | | | |
 | Reddit | | | | | |
 
